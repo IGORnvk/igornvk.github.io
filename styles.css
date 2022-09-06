@@ -1,2 +1,38 @@
-nav {font-family: Arial, Helvetica, sans-serif;}
-body {background-color: lightblue;}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #32a8a8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+    color: rgb(32, 32, 32);
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+
+.links {
+    display: flex;
+    justify-content: space-around; 
+    width: 30%;
+}
+
+.links a {
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.links li {
+    list-style: none;
+}
