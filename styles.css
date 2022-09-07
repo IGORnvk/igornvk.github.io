@@ -1,16 +1,18 @@
-* {
-    box-sizing: border-box;
+body {
     margin: 0;
-    padding: 0;
+    box-sizing: border-box;
+    padding-top: 70px;
 }
 
 nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 8vh;
     background-color: #32a8a8;
     font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100%
 }
 
 .logo {
@@ -20,19 +22,51 @@ nav {
 }
 
 .links {
-    display: flex;
-    justify-content: space-around; 
-    width: 30%;
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .links a {
+    display: block;
     color: rgb(32, 32, 32);
     text-decoration: none;
+    text-align: center;
     letter-spacing: 2px;
     font-weight: bold;
     font-size: 15px;
+    padding: 14px 16px;
 }
 
 .links li {
-    list-style: none;
+    float: left;
+}
+
+.links li a:hover:not(.active) {
+    background-color: rgb(17, 118, 129);
+}
+
+.active {
+    background-color: rgb(14, 238, 226);
+}
+
+@media screen and (max-width: 768px) {
+    .links li,
+    .logo,
+    .asidemenu {float: none;}
+    body {padding-top: 200px;}
+}
+
+
+.asidemenu {
+    display: block;
+    cursor: pointer;
+}
+
+.asidemenu div{
+    background-color: rgb(32, 32, 32);
+    width: 25px;
+    height: 3px;
+    margin: 5px;
 }
