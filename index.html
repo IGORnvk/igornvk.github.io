@@ -7,13 +7,17 @@
     <title>Home</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<style>
+    main {
+        background-color: rgb(181, 254, 253);
+    }
+</style>
 <body>
     <nav>
         <div class="logo">
-            <h1>Welcome</h1>
+            <h1><a href="http://127.0.0.1/">Welcome</a></h1>
         </div>
             <ul class="links">
-                <li><a class="active" href="http://127.0.0.1/">Home</a></li>
                 <li><a href="http://127.0.0.1/profile.html">Profile</a></li>
                 <li><a href="http://127.0.0.1/dashboard.html">Dashboard</a></li>
                 <li><a href="http://127.0.0.1/faq.html">FAQ</a></li>
@@ -21,17 +25,25 @@
                     <div class="dropdown">
                         <a class="dropbtn" href="javascript:void(0)">Blog</a>
                         <div class="dropdown-content">
-                            <a href="http://127.0.0.1/post1.html">Post 1</a>
-                            <a href="http://127.0.0.1/post2.html">Post 2</a>
+                            <a href="http://127.0.0.1/post1.html">Section vs Article thoughts</a>
+                            <a href="http://127.0.0.1/post2.html">Programming Experience</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="side-dropdown">
+                        <a class="side-dropbtn" href="javascript:void(0)">Useful information</a>
+                        <div class="side-dropdown-content">
+                            <a href="https://hz.nl/over-de-hz/regelingen-documenten-1/onderwijs-en-examenregelingen" target="_blank">HBO-ICT Course and Examination Regulations</a>
+                            <a href="https://hz.nl/uploads/documents/1.4-Over-de-HZ/1.4.3.-Regelingen-en-documenten/OERS/2022-2023/IR-CER-HZ-B-HBO-ICT-full-time-2022-2023-DEF.pdf" target="_blank">HBO-ICT Implementation Regulations</a>
+                            <a href="https://www.notion.so/signup?utm_source=public_page&utm_content=topbar_cta&utm_campaign=661c5ac5d7494328a58be61d00dd41e4" target="_blank">Notion Website</a>
+                            <a href="https://teams.microsoft.com/_?culture=en-us&country=WW&lm=deeplink&lmsrc=homePageWeb&cmpid=WebSignIn#/school/teams-grid/General?ctx=teamsGrid" target="_blank">HBO-ICT Microsoft Teams</a>
+                            <a href="https://learn.hz.nl/course/view.php?id=21135#section-0" target="_blank">Study Progress</a>
+                            <a href="https://github.com/HZ-HBO-ICT" target="_blank">HBO-ICT GitHub</a>
                         </div>
                     </div>
                 </li>
             </ul>
-        <div class="aside-menu">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
     </nav>
     <main style="padding: 20px; height: 1500px;">
         <p>This example use media queries to stack the topnav vertically when the screen size is 600px or less.</p>

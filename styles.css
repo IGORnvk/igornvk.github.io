@@ -4,12 +4,15 @@ body {
     padding-top: 70px;
 }
 
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: #32a8a8;
-    font-family: Arial, Helvetica, sans-serif;
     position: fixed;
     top: 0;
     width: 100%
@@ -19,6 +22,11 @@ nav {
     color: rgb(32, 32, 32);
     letter-spacing: 5px;
     font-size: 20px;
+}
+
+.logo a {
+    color:rgb(32, 32, 32);
+    text-decoration: none;
 }
 
 .links {
@@ -32,7 +40,7 @@ nav {
     float: left;
 }
 
-.links a, .dropbtn {
+.links a, .dropbtn, .side-dropbtn {
     display: inline-block;
     color: rgb(32, 32, 32);
     text-decoration: none;
@@ -43,15 +51,15 @@ nav {
     padding: 14px 16px;
 }
 
-.links a:hover, .dropdown:hover .dropbtn {
+.links a:hover, .dropdown:hover .dropbtn, .side-dropdown:hover .side-dropbtn {
     background-color: rgb(17, 118, 129);
 }
 
-.dropdown {
+.dropdown, .side-dropdown {
     display: inline-block;
 }
 
-.dropdown-content {
+.dropdown-content, .side-dropdown-content {
     display: none;
     position: absolute;
     background-color: #ffffff;
@@ -60,7 +68,7 @@ nav {
     z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-content a, .side-dropdown-content a {
     color: rgb(32, 32, 32);
     padding: 12px 16px;
     text-decoration: none;
@@ -68,11 +76,11 @@ nav {
     text-align: left;
 }
 
-.dropdown-content a:hover {
+.dropdown-content a:hover, .side-dropdown-content a:hover {
     background-color: #f1f1f1;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content, .side-dropdown:hover .side-dropdown-content {
     display: block;
 }
 
@@ -83,19 +91,10 @@ nav {
 @media screen and (max-width: 768px) {
     .links li,
     .logo,
-    .asidemenu {float: none;}
-    body {padding-top: 200px;}
-}
-
-
-.aside-menu {
-    display: block;
-    cursor: pointer;
-}
-
-.aside-menu div{
-    background-color: rgb(32, 32, 32);
-    width: 25px;
-    height: 3px;
-    margin: 5px;
+    .dropdown,
+    .side-dropdown,
+    body {float:none;}
+    main {
+        padding-top: 200px;
+    }
 }
