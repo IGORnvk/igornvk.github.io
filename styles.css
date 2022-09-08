@@ -1,7 +1,12 @@
 body {
     margin: 0;
     box-sizing: border-box;
-    padding-top: 70px;
+    padding-top: 68px;
+}
+
+main {
+    background-color: rgba(74, 192, 188, 0.686);
+    height: 1500px;
 }
 
 * {
@@ -17,7 +22,11 @@ nav {
     top: 0;
     width: 100%
 }
-
+/* TODO: use variables for background-color;
+changed links (removed http:/127.0.0.1);
+stored all the style in styles.css (removed part of style from other files);
+fixed padding-top problem in @media;
+*/
 .logo {
     color: rgb(32, 32, 32);
     letter-spacing: 5px;
@@ -95,6 +104,6 @@ nav {
     .side-dropdown,
     body {float:none;}
     main {
-        padding-top: 200px;
+        padding-top: 150px;
     }
 }
