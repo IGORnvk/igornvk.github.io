@@ -8,25 +8,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <style>
-    main {
-        background-color: rgba(74, 192, 188, 0.686);
+    h2 {
+        text-align: center;
     }
 </style>
 <body>
     <nav>
         <div class="logo">
-            <h1><a href="http://127.0.0.1/">Welcome</a></h1>
+            <h1><a href="index.html"><img src="/images/hz-logo.jpg"></a></h1>
         </div>
             <ul class="links">
-                <li><a href="http://127.0.0.1/profile.html">Profile</a></li>
-                <li><a class="active" href="http://127.0.0.1/dashboard.html">Dashboard</a></li>
-                <li><a href="http://127.0.0.1/faq.html">FAQ</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a class="active" href="dashboard.html">Dashboard</a></li>
+                <li><a href="faq.html">FAQ</a></li>
                 <li>
                     <div class="dropdown">
                         <a class="dropbtn" href="javascript:void(0)">Blog</a>
                         <div class="dropdown-content">
-                            <a href="http://127.0.0.1/post1.html">Section vs Article thoughts</a>
-                            <a href="http://127.0.0.1/post2.html">Programming Experience</a>
+                            <a href="opinion.html">&lt;section&gt; vs &lt;article&gt; Thoughts</a>
+                            <a href="experience.html">Programming Experience</a>
                         </div>
                     </div>
                 </li>
@@ -45,8 +45,119 @@
                 </li>
             </ul>
     </nav>
-    <main style="padding: 20px; height: 1500px">
-        <p>textt</p>
+    <main>
+        <h2>Exam List</h2>
+        <table>
+            <thead>
+                <th>Quartile</th>
+                <th>Course</th>
+                <th>Credits</th>
+                <th>Exam</th>
+                <th>Grade</th>
+            </thead>
+            <tbody>
+                <tr class="q1">
+                    <td rowspan="5">1</td>
+                    <td>Program- & Career Orientation (PCO)</td>
+                    <td>2.5</td>
+                    <td>Assessment website</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q1">
+                    <td>Computer Science Basics (CSB)</td>
+                    <td>5</td>
+                    <td>Written knowledge test</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q1">
+                    <td>Programming Basics (PBA)</td>
+                    <td>5</td>
+                    <td>Case study exam</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q1">
+                    <td>IT Personality Project Week 1 (PPW1)</td>
+                    <td>1.25</td>
+                    <td>Portfolio</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q1">
+                    <td>IT Personality 1 (ITP1)</td>
+                    <td>1.25</td>
+                    <td>Portfolio</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q2">
+                    <td rowspan="2">2</td>
+                    <td rowspan="2">Object-Oriented programming (OOP)</td>
+                    <td rowspan="2">10</td>
+                    <td>Presentation</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q2">
+                    <td>Case study exam</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q3">
+                    <td rowspan="4">3</td>
+                    <td>Framework Development 1 (FDE1)</td>
+                    <td>5</td>
+                    <td>Case study exam</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q3">
+                    <td rowspan="3">Framework Project 1 (FPR1)</td>
+                    <td rowspan="3">7.5</td>
+                    <td>Criterium based interview</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q3">
+                    <td>Assignment</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q3">
+                    <td>Case study exam</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q4">
+                    <td rowspan="7">4</td>
+                    <td rowspan="3">Framework Project 2 (FPR2)</td>
+                    <td rowspan="3">10</td>
+                    <td>Final delivery</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q4">
+                    <td>Report of acceptance tests and optional assessments</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q4">
+                    <td>IT Development portfolio</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q4">
+                    <td>IT Personality International week (PIW)</td>
+                    <td>1.25</td>
+                    <td>Portfolio</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q4">
+                    <td>IT Personality 2 (ITP2)</td>
+                    <td>1.25</td>
+                    <td>Portfolio</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q4">
+                    <td rowspan="2">Personal Professional Development: Exploration (PPD-E)</td>
+                    <td rowspan="2">12</td>
+                    <td>English Test</td>
+                    <td>-</td>
+                </tr>
+                <tr class="q4">
+                    <td>Criterium focused interview</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
     </main>
 </body>
 </html>

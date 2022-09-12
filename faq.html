@@ -7,26 +7,21 @@
     <title>FAQ</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<style>
-    main {
-        background-color: rgba(74, 192, 188, 0.686);
-    }
-</style>
 <body>
     <nav>
         <div class="logo">
-            <h1><a href="http://127.0.0.1/">Welcome</a></h1>
+            <h1><a href="index.html"><img src="/images/hz-logo.jpg"></a></h1>
         </div>
             <ul class="links">
-                <li><a href="http://127.0.0.1/profile.html">Profile</a></li>
-                <li><a href="http://127.0.0.1/dashboard.html">Dashboard</a></li>
-                <li><a class="active" href="http://127.0.0.1/faq.html">FAQ</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a class="active" href="faq.html">FAQ</a></li>
                 <li>
                     <div class="dropdown">
                         <a class="dropbtn" href="javascript:void(0)">Blog</a>
                         <div class="dropdown-content">
-                            <a href="http://127.0.0.1/post1.html">Section vs Article thoughts</a>
-                            <a href="http://127.0.0.1/post2.html">Programming Experience</a>
+                            <a href="opinion.html">&lt;section</section>&gt; vs &lt;article&gt; Thoughts</a>
+                            <a href="experience.html">Programming Experience</a>
                         </div>
                     </div>
                 </li>
@@ -45,8 +40,76 @@
                 </li>
             </ul>
     </nav>
-    <main style="padding: 20px; height: 1500px">
-        <p>text</p>
+    <main>
+        <h2>Frequently Asked Question</h2>
+        <section class="faq">
+            <div class="container">
+                <div class="accordion">
+                    <div class="accordion-item" id="question1">
+                        <a class="accordion-link" href="#question1">
+                            How can you print a document from your laptop at HZ?
+                            <ion-icon name="add-outline"></ion-icon>
+                            <ion-icon name="remove-outline"></ion-icon>
+                        </a>
+                        <div class="answer">
+                            <p>...</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item" id="question2">
+                        <a class="accordion-link" href="#question2">
+                            How can you scan a document a send it to your laptop at HZ?
+                            <ion-icon name="add-outline"></ion-icon>
+                            <ion-icon name="remove-outline"></ion-icon>
+                        </a>
+                        <div class="answer">
+                            <p>...</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item" id="question3">
+                        <a class="accordion-link" href="#question3">
+                            How can I buy something (e.g when I sign up for the IT introduction event on 16/09) on the HZ web shop?
+                            <ion-icon name="add-outline"></ion-icon>
+                            <ion-icon name="remove-outline"></ion-icon>
+                        </a>
+                        <div class="answer">
+                            <p>...</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item" id="question4">
+                        <a class="accordion-link" href="#question4">
+                            Where can I find the latest instructions on what to do when you are sick / show symptoms of COVID?
+                            <ion-icon name="add-outline"></ion-icon>
+                            <ion-icon name="remove-outline"></ion-icon>
+                        </a>
+                        <div class="answer">
+                            <p>...</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item" id="question5">
+                        <a class="accordion-link" href="#question5">
+                            How can you book a project space in one of the wings?
+                            <ion-icon name="add-outline"></ion-icon>
+                            <ion-icon name="remove-outline"></ion-icon>
+                        </a>
+                        <div class="answer">
+                            <p>...</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item" id="question6">
+                        <a class="accordion-link" href="#question6">
+                            What are the instructions if you want to park your car at the HZ parking lot?
+                            <ion-icon name="add-outline"></ion-icon>
+                            <ion-icon name="remove-outline"></ion-icon>
+                        </a>
+                        <div class="answer">
+                            <p>...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

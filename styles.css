@@ -1,12 +1,70 @@
 body {
     margin: 0;
     box-sizing: border-box;
-    padding-top: 68px;
+    padding-top: 100px;
+    background-color: rgba(74, 192, 188, 0.686);
 }
 
 main {
-    background-color: rgba(74, 192, 188, 0.686);
-    height: 1500px;
+    width: 100%;
+    font-size: 20px;
+    color:rgb(32, 32, 32);
+    text-align: center;
+}
+
+.opinion {
+    width: 50%;
+    margin-left: 25%;
+}
+
+h2 {
+    letter-spacing: 5px;
+}
+
+table, td, th {
+    border: 1px solid;
+    color:rgb(32, 32, 32);
+    border-color: #03758f;
+}
+
+th {
+    height: 80px;
+    background-color: #3ed4d4;
+}
+
+table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+td {
+    text-align: center;
+    height: 50px;
+}
+
+.q1 {
+    background-color: rgb(152, 205, 255);
+}
+
+.q2 {
+    background-color: rgb(255, 251, 203);
+}
+
+.q3 {
+    background-color: rgb(250, 218, 177);
+}
+
+.q4 {
+    background-color: rgb(182, 240, 204);
+}
+
+img {
+    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    border-radius: 10px;
 }
 
 * {
@@ -27,10 +85,10 @@ changed links (removed http:/127.0.0.1);
 stored all the style in styles.css (removed part of style from other files);
 fixed padding-top problem in @media;
 */
-.logo {
-    color: rgb(32, 32, 32);
-    letter-spacing: 5px;
-    font-size: 20px;
+
+.logo img {
+    height: 60px;
+    width: 60px;
 }
 
 .logo a {
@@ -104,6 +162,85 @@ fixed padding-top problem in @media;
     .side-dropdown,
     body {float:none;}
     main {
-        padding-top: 150px;
+        padding-top: 144px;
     }
+}
+
+.faq {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.accordion-item {
+    background-color: rgb(200, 253, 245);
+    border-radius: .4rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: .5rem 2px .5rem rgba(0,0,0,.1);
+    text-align: left;
+}
+
+.accordion-link {
+    font-size: 1.6rem;
+    text-decoration: none;
+    color:rgb(32, 32, 32);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.accordion-link ion-icon {
+    padding: .5rem;
+}
+
+[name|="remove-outline"] {
+    display: none;
+}
+
+.answer {
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: #81c7c7;
+    transition: max-height 650ms;
+}
+
+.answer::before {
+    content: "";
+    position: absolute;
+    width: .6rem;
+    height: 100%;
+    background-color: rgb(75, 148, 181);
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.answer p {
+    font-size: 1.4rem;
+    color:rgb(32, 32, 32);
+    padding: 2rem;
+}
+
+.accordion-item:target .answer {
+    max-height: 20rem;
+}
+
+.accordion-item:target [name|="add-outline"] {
+    display: none;
+}
+
+.accordion-item:target [name|="remove-outline"] {
+    display: block;
 }
