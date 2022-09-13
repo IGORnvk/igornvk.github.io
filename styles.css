@@ -9,8 +9,8 @@ body {
     background-color: rgba(74, 192, 188, 0.686);
 }
 
-.study-choice, .opinion, .experience {
-    height: 1000px;
+.study-choice, .opinion, .experience, .swot {
+    height: 800px;
 }
 
 .personal-info {
@@ -27,9 +27,9 @@ main {
     text-align: center;
 }
 
-.opinion, .experience, .study-choice, .welcome {
+.opinion , .experience , .study-choice , .welcome, .swot {
     width: 50%;
-    margin-left: 25%;
+    margin-left: 26.5%;
 }
 
 .opinion img, .experience img {
@@ -37,13 +37,44 @@ main {
     height: 25rem;
 }
 
+.swot img {
+    width: 45rem;
+    height: 22.5rem;
+}
+
+.welcome img {
+    width: 45rem;
+    height: 21rem;
+}
+
+.welcome {
+    height: 1550px;
+}
+
 .study-choice img {
     height: 25rem;
     width: 35rem;
 }
 
+[name|="joke"] {
+    width: 45rem;
+    height: 25rem;
+}
+
+.history ul {
+    text-align: left;
+}
+
+a {
+    color: rgb(32, 32, 32);
+}
+
 h2 {
     letter-spacing: 5px;
+}
+
+h3 {
+    letter-spacing: 3px;
 }
 
 table, td, th {
@@ -151,7 +182,6 @@ nav {
 }
 
 .logo a {
-    color:rgb(32, 32, 32);
     text-decoration: none;
 }
 
@@ -168,7 +198,6 @@ nav {
 
 .links a, .dropbtn, .side-dropbtn {
     display: inline-block;
-    color: rgb(32, 32, 32);
     text-decoration: none;
     text-align: center;
     letter-spacing: 2px;
