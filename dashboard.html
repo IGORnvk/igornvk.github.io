@@ -45,9 +45,9 @@
                 </li>
             </ul>
     </nav>
-    <main>
+    <main class="dashboard">
         <h2>Exam List</h2>
-        <table>
+        <table id="table">
             <thead>
                 <th>Quartile</th>
                 <th>Course</th>
@@ -61,100 +61,100 @@
                     <td>Program- & Career Orientation (PCO)</td>
                     <td>2.5</td>
                     <td>Assessment website</td>
-                    <td>-</td>
+                    <td id="1">2.5</td>
                 </tr>
                 <tr class="q1">
                     <td>Computer Science Basics (CSB)</td>
                     <td>5</td>
                     <td>Written knowledge test</td>
-                    <td>-</td>
+                    <td id="2">0</td>
                 </tr>
                 <tr class="q1">
                     <td>Programming Basics (PBA)</td>
                     <td>5</td>
                     <td>Case study exam</td>
-                    <td>-</td>
+                    <td id="3">0</td>
                 </tr>
                 <tr class="q1">
                     <td>IT Personality Project Week 1 (PPW1)</td>
                     <td>1.25</td>
                     <td>Portfolio</td>
-                    <td>-</td>
+                    <td id="4">0</td>
                 </tr>
                 <tr class="q1">
                     <td>IT Personality 1 (ITP1)</td>
                     <td>1.25</td>
                     <td>Portfolio</td>
-                    <td>-</td>
+                    <td id="5">0</td>
                 </tr>
                 <tr class="q2">
                     <td rowspan="2">2</td>
                     <td rowspan="2">Object-Oriented programming (OOP)</td>
                     <td rowspan="2">10</td>
                     <td>Presentation</td>
-                    <td>-</td>
+                    <td id="6">0</td>
                 </tr>
                 <tr class="q2">
                     <td>Case study exam</td>
-                    <td>-</td>
+                    <td id="7">0</td>
                 </tr>
                 <tr class="q3">
                     <td rowspan="4">3</td>
                     <td>Framework Development 1 (FDE1)</td>
                     <td>5</td>
                     <td>Case study exam</td>
-                    <td>-</td>
+                    <td id="8">0</td>
                 </tr>
                 <tr class="q3">
                     <td rowspan="3">Framework Project 1 (FPR1)</td>
                     <td rowspan="3">7.5</td>
                     <td>Criterium based interview</td>
-                    <td>-</td>
+                    <td id="9">0</td>
                 </tr>
                 <tr class="q3">
                     <td>Assignment</td>
-                    <td>-</td>
+                    <td id="10">0</td>
                 </tr>
                 <tr class="q3">
                     <td>Case study exam</td>
-                    <td>-</td>
+                    <td id="11">0</td>
                 </tr>
                 <tr class="q4">
                     <td rowspan="7">4</td>
                     <td rowspan="3">Framework Project 2 (FPR2)</td>
                     <td rowspan="3">10</td>
                     <td>Final delivery</td>
-                    <td>-</td>
+                    <td id="12">0</td>
                 </tr>
                 <tr class="q4">
                     <td>Report of acceptance tests and optional assessments</td>
-                    <td>-</td>
+                    <td id="13">0</td>
                 </tr>
                 <tr class="q4">
                     <td>IT Development portfolio</td>
-                    <td>-</td>
+                    <td id="14">0</td>
                 </tr>
                 <tr class="q4">
                     <td>IT Personality International week (PIW)</td>
                     <td>1.25</td>
                     <td>Portfolio</td>
-                    <td>-</td>
+                    <td id="15">0</td>
                 </tr>
                 <tr class="q4">
                     <td>IT Personality 2 (ITP2)</td>
                     <td>1.25</td>
                     <td>Portfolio</td>
-                    <td>-</td>
+                    <td id="16">0</td>
                 </tr>
                 <tr class="q4">
                     <td rowspan="2">Personal Professional Development: Exploration (PPD-E)</td>
                     <td rowspan="2">12</td>
                     <td>English Test</td>
-                    <td>-</td>
+                    <td id="17">0</td>
                 </tr>
                 <tr class="q4">
                     <td>Criterium focused interview</td>
-                    <td>-</td>
+                    <td id="18">0</td>
                 </tr>
             </tbody>
         </table>
@@ -163,7 +163,7 @@
         <br>
         <div class="bar-container">
             <div class="nbsa-goal"></div>
-            <div class="bar-filler"></div>
+            <div class="bar-filler" id="bar-filler"></div>
             <span class="bar-nbsa">45 EC</span>
             <span class="bar-max">60 EC</span>
             <span class="bar-0">0 EC</span>
@@ -171,5 +171,6 @@
         <br>
         <br>
     </main>
+    <script src="./app.js"></script>
 </body>
 </html>

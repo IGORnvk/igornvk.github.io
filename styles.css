@@ -4,8 +4,16 @@
      --navcolor: #32a8a8;
 }
 
+/* general styling of the pages start */
 * {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    border-radius: 10px;
 }
 
 body {
@@ -81,7 +89,9 @@ h2 {
 h3 {
     letter-spacing: 3px;
 }
+/* general styling of the pages end */
 
+/* table styling start */
 table, td, th {
     border: 1px solid;
     color: var(--textcolor);
@@ -93,6 +103,11 @@ th {
     background-color: #3ed4d4;
 }
 
+td {
+    text-align: center;
+    height: 50px;
+}
+
 table {
     border-collapse: collapse;
     margin-left: auto;
@@ -100,6 +115,24 @@ table {
     width: 80%;
 }
 
+.q1 {
+    background-color: rgb(152, 205, 255);
+}
+
+.q2 {
+    background-color: rgb(255, 251, 203);
+}
+
+.q3 {
+    background-color: rgb(250, 218, 177);
+}
+
+.q4 {
+    background-color: rgb(182, 240, 204);
+}
+/* table styling end */
+
+/* progress bar styling start */
 .bar-container {
     display: flex;
     margin: auto;
@@ -142,34 +175,17 @@ table {
     z-index: 20;
 }
 
-td {
-    text-align: center;
-    height: 50px;
+@media screen and (max-width: 1100px) {
+    .bar-0 {
+        left: 8%;
+    }
+    .bar-max {
+        right: 6%;
+    }
 }
+/* progress bar styling end */
 
-.q1 {
-    background-color: rgb(152, 205, 255);
-}
-
-.q2 {
-    background-color: rgb(255, 251, 203);
-}
-
-.q3 {
-    background-color: rgb(250, 218, 177);
-}
-
-.q4 {
-    background-color: rgb(182, 240, 204);
-}
-
-img {
-    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-    box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-    border-radius: 10px;
-}
-
+/* nav bar styling start */
 nav {
     display: flex;
     justify-content: space-around;
@@ -258,16 +274,9 @@ nav {
         padding-top: 144px;
     }
 }
+/* nav bar styling end */
 
-@media screen and (max-width: 1100px) {
-    .bar-0 {
-        left: 8%;
-    }
-    .bar-max {
-        right: 6%;
-    }
-}
-
+/* faq styling start */
 .faq {
     width: 100%;
     height: 115vh;
@@ -345,4 +354,127 @@ nav {
 
 .accordion-item:target [name|="remove-outline"] {
     display: block;
+}
+/* faq styling end */
+
+/* animations */
+.welcome {
+    animation: 1.5s welcome 0s forwards;
+    transform:translateX(-180%);
+}
+
+.profile {
+    animation: 1.5s profile 0s forwards;
+    transform:translateX(-80%);
+}
+
+.profession {
+    animation: 1.5s profession 0s forwards;
+    transform:translateX(-170%);
+}
+
+.feedback {
+    animation: 1.5s feedback 0s forwards;
+    transform:translateX(-180%);
+}
+
+.swot {
+    animation: 1.5s swot 0s forwards;
+    transform:translateX(-180%);
+}
+
+.study-choice {
+    animation: 1.5s study-choice 0s forwards;
+    transform:translateX(-180%);
+}
+
+.opinion {
+    animation: 1.5s opinion 0s forwards;
+    transform:translateX(-180%);
+}
+
+.experience {
+    animation: 1.5s experience 0s forwards;
+    transform:translateX(-180%);
+}
+
+.dashboard {
+    animation: 1.5s dashboard 0s forwards;
+    transform:translateX(-180%);
+}
+
+.faq {
+    animation: 1.5s faq 0s forwards;
+    transform:translateX(-180%);
+}
+
+.faq-text {
+    animation: 1.5s faq-text 0s forwards;
+    transform:translateX(-180%);
+}
+
+@keyframes welcome {
+    to {
+      transform:translateX(0);
+    }
+}
+
+@keyframes profile {
+    to {
+      transform:translateX(0);
+    }
+}
+
+@keyframes profession {
+    to {
+      transform:translateX(0);
+    }
+}
+
+@keyframes feedback {
+    to {
+      transform:translateX(0);
+    }
+}
+
+@keyframes swot {
+    to {
+      transform:translateX(0);
+    }
+}
+
+@keyframes study-choice {
+    to {
+      transform:translateX(0);
+    }
+}
+
+@keyframes opinion {
+    to {
+      transform:translateX(0);
+    }
+}
+
+@keyframes experience {
+    to {
+      transform:translateX(0);
+    }
+}
+
+@keyframes dashboard {
+    to {
+      transform:translateX(0);
+    }
+}
+
+@keyframes faq {
+    to {
+      transform:translateX(0);
+    }
+}
+
+@keyframes faq-text {
+    to {
+      transform:translateX(0);
+    }
 }
