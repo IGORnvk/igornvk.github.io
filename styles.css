@@ -357,7 +357,7 @@ nav {
 }
 /* faq styling end */
 
-/* animations */
+/* animations start */
 .welcome {
     animation: 1.5s welcome 0s forwards;
     transform:translateX(-180%);
@@ -478,3 +478,4 @@ nav {
       transform:translateX(0);
     }
 }
+/* animations end */
