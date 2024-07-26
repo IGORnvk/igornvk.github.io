@@ -5,6 +5,9 @@ export default {
     extend: {
       fontFamily: {
         orbitron: ['Orbitron', 'sans-serif'],
+      },
+      colors: {
+        'popup': '#4cd0fc'
       }
     },
   },

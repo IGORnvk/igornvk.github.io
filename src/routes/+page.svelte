@@ -1,8 +1,18 @@
 <script>
 	import Popup from "$lib/components/Popup.svelte";
+	import { onMount } from "svelte";
 
-    let showPopup = true;
+    let showPopup = false;
+
+    onMount(() => {
+        setTimeout(() => {
+            showPopup = true;
+        }, 500);
+    });
 </script>
-<h1 class="text-3xl font-orbitron">Ihor Novikov</h1>
 
-<Popup bind:showPopup></Popup>
+<Popup bind:showPopup>
+    <p slot="header">Unauthorized access</p>
+    <p slot="description">You are not permitted to access this environment.</p>
+</Popup>
+
