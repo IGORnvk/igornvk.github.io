@@ -3,8 +3,11 @@
 	import VerticalBorder from '$lib/components/VerticalBorder.svelte';
 
 	// variables for managing popup
-	export let showPopup = false;
-	export let showLoadingBar = false;
+	export let showPopup = true;
+	export let showErrors = false;
+	export let posX = '0%';
+	export let posY = '0%';
+
 	let isClosing = false;
 
 	/**
@@ -15,7 +18,9 @@
 		setTimeout(() => {
 			showPopup = false;
 			isClosing = false;
-			showLoadingBar = true;
+			if ($$slots.icon && $$slots.buttonText) {
+				showErrors = true;
+			}
 		}, 500);
 	}
 
@@ -25,18 +30,27 @@
 	 * @param {{ key: string; }} event
 	 */
 	function onKeyDown(event) {
-		if (event.key == 'Enter') {
+		if (event.key == 'Enter' && $$slots.icon && $$slots.buttonText) {
 			close();
 		}
+	}
+
+	if (!($$slots.icon && $$slots.buttonText)) {
+		setTimeout(() => {
+			close();
+		}, 6000);
 	}
 </script>
 
 {#if showPopup}
 	<div class="fixed top-0 left-0 flex w-full h-full justify-center items-center overflow-hidden">
-		<div class="popup-content {isClosing ? 'closing' : ''} flex gap-1 relative mx-auto max-w-md">
+		<div
+			class="popup-content {isClosing ? 'closing' : ''} flex gap-1 relative mx-auto max-w-md"
+			style="--pos-x: {posX}; --pos-y: {posY};"
+		>
 			<VerticalBorder />
 			<img
-				src="/src/img/popup-interference.png"
+				src="/src/img/glitch-blue.png"
 				class="object-scale-down self-start absolute ml-4 h-4 -top-2"
 				alt="interference"
 			/>
@@ -45,7 +59,7 @@
 					class="border-2 border-popup p-0.5 flex flex-col bg-gradient-to-r from-indigo-600 to-indigo-800 text-white"
 				>
 					<div class="p-7 rounded-md">
-						<div class="font-bold text-xl text-popup">
+						<div class="font-bold sm:text-xl text-popup uppercase">
 							<slot name="header" />
 						</div>
 						<HorizontalBorder />
@@ -57,26 +71,16 @@
 				</div>
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
-				<div
-					class="submit-button box-border flex gap-1 justify-center items-center after:bg-popup relative overflow-visible py-1 px-2 bg-gradient-to-r from-indigo-600 to-indigo-800 border-2 border-popup hover:cursor-pointer self-end font-bold active:bg-blue-700"
-					on:click={close}
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="size-5 p-0.5 bg-popup rounded-xl"
+				{#if $$slots.icon && $$slots.buttonText}
+					<div
+						class="submit-button box-border flex gap-1 justify-center items-center after:bg-popup relative overflow-visible py-1 px-2 bg-gradient-to-r from-indigo-600 to-indigo-800 border-2 border-popup hover:cursor-pointer self-end font-bold active:bg-blue-700"
+						on:click={close}
 					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="m7.49 12-3.75 3.75m0 0 3.75 3.75m-3.75-3.75h16.5V4.499"
-						/>
-					</svg>
-					<p class="uppercase text-rose-500">ok</p>
-				</div>
+						<slot name="icon" />
+
+						<slot name="buttonText" />
+					</div>
+				{/if}
 			</div>
 		</div>
 	</div>
@@ -101,14 +105,14 @@
 			opacity: 0;
 		}
 		to {
-			transform: translateY(0) scaleX(1);
+			transform: translate(var(--pos-x), var(--pos-y)) scaleX(1);
 			opacity: 1;
 		}
 	}
 
 	@keyframes popup-disappear {
 		from {
-			transform: translateY(0) scaleX(1);
+			transform: translate(var(--pos-x), var(--pos-y)) scaleX(1);
 			opacity: 1;
 		}
 		to {
