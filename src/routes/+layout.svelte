@@ -7,5 +7,3 @@
 		<slot />
 	</div>
 </div>
-
-<!-- bg-gradient-to-r from-violet-800 to-violet-950 -->

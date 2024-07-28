@@ -1,5 +1,7 @@
 <script>
+	import DangerSign from '$lib/components/DangerSign.svelte';
 	import LoadingBar from '$lib/components/LoadingBar.svelte';
+	import NavBar from '$lib/components/NavBar.svelte';
 	import Popup from '$lib/components/Popup.svelte';
 	import { onMount } from 'svelte';
 
@@ -7,7 +9,8 @@
 	let showErrors = false;
 	let showDanger = false;
 	let showLoadingBar = false;
-	let showPage = false;
+	let showNavBar = false;
+	let showContent = false;
 
 	const errorDescriptions = [
 		{
@@ -104,7 +107,7 @@
 		viewBox="0 0 24 24"
 		stroke-width="1.5"
 		stroke="currentColor"
-		class="size-5 p-0.5 bg-popup rounded-xl"
+		class="size-5 p-0.5 bg-main rounded-xl"
 	>
 		<path
 			stroke-linecap="round"
@@ -113,7 +116,7 @@
 		/>
 	</svg>
 
-	<p slot="buttonText" class="uppercase text-rose-500">ok</p>
+	<p slot="buttonText" class="uppercase text-secondary">ok</p>
 </Popup>
 
 {#if showErrors}
@@ -128,27 +131,21 @@
 {/if}
 
 {#if showErrors && showDanger}
-	<div class="relative w-full h-full flex flex-col gap-8 justify-center items-center danger-sign">
-		<img src="./src/img/warning.png" class="  sm:h-5/12 sm:w-1/6" alt="warning" />
-		<p class="text-rose-500 uppercase font-bold text-2xl sm:text-3xl">Initializing restart</p>
-	</div>
+	<DangerSign />
 {/if}
 
 {#if showLoadingBar}
-	<LoadingBar bind:showLoadingBar bind:showPage />
+	<LoadingBar bind:showLoadingBar bind:showNavBar />
 {/if}
 
-{#if showPage}
-	<p class="text-white text-center">Ihor Novikov</p>
+{#if showNavBar}
+	<NavBar bind:showContent />
 {/if}
 
-<style lang="postcss">
-	@keyframes blink {
-		50% {
-			opacity: 0;
-		}
-	}
-	.danger-sign {
-		animation: blink 1s step-start 0.5s infinite;
-	}
-</style>
+
+{#if showContent}
+	<div class="appear mx-auto mt-64 flex flex-col gap-32 text-center text-white">
+		<p class="text-8xl">Ihor Novikov</p>
+		<p class="text-4xl tracking-wide">Fullstack software engineer</p>
+	</div>
+{/if}

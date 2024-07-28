@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 
-	export let showPage = false;
+	export let showNavBar = false;
 	export let showLoadingBar = false;
 	let showStartingPoint = false;
 	let isClosing = false;
@@ -14,7 +14,7 @@
 		setTimeout(() => {
 			showLoadingBar = false;
 			isClosing = false;
-			showPage = true;
+			showNavBar = true;
 		}, 500);
 	}
 
@@ -72,13 +72,13 @@
 
 {#if showLoadingBar}
 	<div class="flex flex-col justify-center items-center h-full w-full">
-		<div class="{isClosing ? 'closing' : ''} w-5/6 sm:w-1/6 h-fit w-fit text-xl bar-content">
-			<div class="flex justify-between text-rose-500">
+		<div class="{isClosing ? 'closing' : ''} w-5/6 sm:w-1/6 h-fit w-fit text-xl appear">
+			<div class="flex justify-between text-secondary">
 				<div id="loadingText" class="tracking-widest font-thin">Restarting...</div>
 				<div id="percentage" class="tracking-widest font-thin">0%</div>
 			</div>
 			<div class="w-full bg-gray-300 h-0.5">
-				<div id="progressBar" class="bg-rose-500 h-0.5 animate-fill"></div>
+				<div id="progressBar" class="bg-secondary h-0.5 animate-fill"></div>
 			</div>
 		</div>
 
@@ -86,7 +86,7 @@
 			<div
 				class="{isClosing
 					? 'closing'
-					: 'starting-point'} absolute bottom-1/3 text-rose-500 text-2xl"
+					: 'starting-point'} absolute bottom-1/3 text-secondary text-2xl"
 			>
 				Press any key to continue.
 			</div>
@@ -100,11 +100,6 @@
 />
 
 <style lang="postcss">
-	.bar-content {
-		opacity: 0;
-		animation: bar-appear 1s ease-out forwards;
-	}
-
 	.closing {
 		animation: bar-disappear 1s ease-out forwards;
 	}
@@ -115,15 +110,6 @@
 		}
 		to {
 			opacity: 0;
-		}
-	}
-
-	@keyframes bar-appear {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
 		}
 	}
 

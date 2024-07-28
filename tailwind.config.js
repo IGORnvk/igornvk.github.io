@@ -7,7 +7,8 @@ export default {
         orbitron: ['Orbitron', 'sans-serif'],
       },
       colors: {
-        'popup': '#4cd0fc'
+        'main': '#4cd0fc',
+        'secondary': '#f43f5e'
       }
     },
   },
