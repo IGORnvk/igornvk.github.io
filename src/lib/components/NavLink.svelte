@@ -3,7 +3,7 @@
 	export let title;
 </script>
 
-<a href={link} class="nav-link hover:text-main transition-colors duration-300 relative">
+<a href={link} class="nav-link hover:text-main transition-colors duration-300 relative cursor-main">
 	{title}
 </a>
 

@@ -9,6 +9,9 @@ export default {
       colors: {
         'main': '#4cd0fc',
         'secondary': '#f43f5e'
+      },
+      cursor: {
+        'main': 'url(./src/img/cursor.png), default'
       }
     },
   },

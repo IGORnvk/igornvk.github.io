@@ -73,7 +73,7 @@
 				<!-- svelte-ignore a11y-no-static-element-interactions -->
 				{#if $$slots.icon && $$slots.buttonText}
 					<div
-						class="submit-button box-border flex gap-1 justify-center items-center after:bg-main relative overflow-visible py-1 px-2 bg-gradient-to-r from-indigo-600 to-indigo-800 border-2 border-main hover:cursor-pointer self-end font-bold active:bg-blue-700"
+						class="submit-button box-border flex gap-1 justify-center items-center after:bg-main relative overflow-visible py-1 px-2 bg-gradient-to-r from-indigo-600 to-indigo-800 border-2 border-main self-end font-bold active:bg-blue-700"
 						on:click={close}
 					>
 						<slot name="icon" />

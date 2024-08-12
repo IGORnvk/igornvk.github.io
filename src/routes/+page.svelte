@@ -142,10 +142,19 @@
 	<NavBar bind:showContent />
 {/if}
 
-
 {#if showContent}
-	<div class="appear mx-auto mt-64 flex flex-col gap-32 text-center text-white">
-		<p class="text-8xl">Ihor Novikov</p>
-		<p class="text-4xl tracking-wide">Fullstack software engineer</p>
+	<div class="appear w-full h-1/2 flex justify-center text-white">
+		<div class="grid grid-cols-2 grid-rows-2 content-end text-9xl tracking-wider uppercase">
+			<p class="place-self-end">Ihor</p>
+			<div class="self-end flex flex-col text-2xl">
+				<p>fullstack</p>
+				<p>software engineer</p>
+			</div>
+			<div class="place-self- self-start flex flex-col items-end justify-start text-2xl">
+				<p>based in</p>
+				<p>the Netherlands</p>
+			</div>
+			<p class="col-start-2 row-start-2">Novikov</p>
+		</div>
 	</div>
 {/if}
