@@ -1,12 +1,13 @@
 <script lang="ts">
-  import App from '$lib/components/App.svelte'
+  import "../app.css";
+  import App from '$lib/components/App.svelte';
 </script>
 
 <div>
   <App />
 </div>
 
-<style>
+<style lang="postcss">
   :global(body) {
     margin: 0;
   }
