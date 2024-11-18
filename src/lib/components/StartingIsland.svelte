@@ -8,17 +8,22 @@
   import WoodenSign from "./models/WoodenSign.svelte";
   import Grass1 from "./models/Grass1.svelte";
   import FishingStand from "./models/FishingStand.svelte";
-    import SignpostSingle from "./models/SignpostSingle.svelte";
-    import WoodenSign1 from "./models/WoodenSign1.svelte";
+  import SignpostSingle from "./models/SignpostSingle.svelte";
+  import WoodenSign1 from "./models/WoodenSign1.svelte";
+    import FenceFortified from "./models/FenceFortified.svelte";
+    import Twig from "./models/Twig.svelte";
+    import Campfire from "./models/Campfire.svelte";
+    import Tent from "./models/Tent.svelte";
+    import StructureRoof from "./models/StructureRoof.svelte";
 
   const treeSettings = [
-    { scale: 1, x: 0.2, y: $heightForItems, z: -0.5 },
-    { scale: 0.7, x: 0, y: $heightForItems, z: -0.3 },
+    { scale: 1, x: 0.1, y: $heightForItems, z: 0.5 },
+    { scale: 0.7, x: 0.2, y: $heightForItems, z: 0.2 },
     { scale: 1.3, x: 0.3, y: $heightForItems, z: -0.1 },
   ];
 
   const grassCoords = [
-    { x: -0.1, y: $heightForItems, z: -0.35 },
+    { x: 0.1, y: $heightForItems, z: 0.35 },
     { x: 0.2, y: $heightForItems, z: -0.1 },
   ];
 </script>
@@ -45,24 +50,34 @@
   position.z={0.2}
 />
 
-<FishingStand
-  scale={0.8}
-  position.x={0.1}
+<StructureRoof
+  scale={0.3}
+  position.x={-0.2}
   position.y={$heightForItems}
-  position.z={0.4}
-  rotation.y={1}
+  position.z={-0.47}
+  rotation.y={-1}
 />
 
-<T.Mesh
+<Tent
+scale={0.4}
+  position.x={0.3}
   position.y={$heightForItems}
->
-  <WoodenSign1
-    scale={0.16}
-    position.x={-0.1}
-    rotation.y={-0.9}
-  />
+  position.z={-0.4}
+  rotation.y={0.8}
+/>
 
-  <HTML transform pointerEvents="none" position.x={-0.1} position.z={0.002} position.y={0.345} rotation.y={-0.9} occlude>
+<T.Mesh position.y={$heightForItems}>
+  <WoodenSign1 scale={0.16} position.x={-0.1} position.z={0.1} rotation.y={-1.9} />
+
+  <HTML
+    transform
+    pointerEvents="none"
+    position.x={-0.11}
+    position.z={0.1}
+    position.y={0.345}
+    rotation.y={-1.9}
+    occlude
+  >
     <button class="text-white" style="font-size: 1px;">Start</button>
   </HTML>
 </T.Mesh>

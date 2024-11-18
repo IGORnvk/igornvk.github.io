@@ -17,12 +17,15 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\Campfi
 
   type GLTFResult = {
     nodes: {
-      ['Campfire_Cylinder009-Mesh']: THREE.Mesh
-      ['Campfire_Cylinder009-Mesh_1']: THREE.Mesh
+      campfire: THREE.Mesh
+      bucket: THREE.Mesh
+      rocks: THREE.Mesh
+      wood: THREE.Mesh
     }
     materials: {
-      Stone: THREE.MeshStandardMaterial
-      Wood: THREE.MeshStandardMaterial
+      wood: THREE.MeshStandardMaterial
+      metal: THREE.MeshStandardMaterial
+      rock: THREE.MeshStandardMaterial
     }
   }
 
@@ -35,8 +38,10 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\Campfi
   {#await gltf}
     <slot name="fallback" />
   {:then gltf}
-    <T.Mesh geometry={gltf.nodes['Campfire_Cylinder009-Mesh'].geometry} material={gltf.materials.Stone} />
-    <T.Mesh geometry={gltf.nodes['Campfire_Cylinder009-Mesh_1'].geometry} material={gltf.materials.Wood} />
+    <T.Mesh geometry={gltf.nodes.campfire.geometry} material={gltf.materials.wood} />
+    <T.Mesh geometry={gltf.nodes.bucket.geometry} material={gltf.materials.metal} />
+    <T.Mesh geometry={gltf.nodes.rocks.geometry} material={gltf.materials.rock} />
+    <T.Mesh geometry={gltf.nodes.wood.geometry} material={gltf.materials.wood} />
   {:catch error}
     <slot name="error" {error} />
   {/await}
