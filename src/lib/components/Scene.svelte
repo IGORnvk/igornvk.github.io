@@ -13,10 +13,24 @@
   import ProjectsIsland from "./ProjectsIsland.svelte";
   import ContactIsland from "./ContactIsland.svelte";
   import GrassPlatform from "./models/GrassPlatform.svelte";
+  import CameraControls from "./CameraControls.svelte";
+  import { cameraControls, heightForItems, mesh } from "$lib/stores";
 </script>
 
-<T.PerspectiveCamera makeDefault position={[-10, 5, 7]} fov={14}>
-  <OrbitControls enableZoom enableDamping zoomSpeed={3} target.y={1.7} />
+<T.PerspectiveCamera
+  makeDefault
+  position={[-10, 5, 7]}
+  fov={30}
+  on:create={({ ref }) => {
+    ref.lookAt(0, 1, 0);
+  }}
+>
+  <CameraControls
+    on:create={({ ref }) => {
+      $cameraControls = ref;
+      $cameraControls.setLookAt(-10, 5, 7, 0, $heightForItems, 0);
+    }}
+  />
 </T.PerspectiveCamera>
 
 <Sky />
@@ -39,9 +53,19 @@
 <Float floatIntensity={1} floatingRange={[0, 0.3]}>
   <StartingIsland />
 
-  <GrassPlatform scale={0.7} position.x={0.3} position.y={1.15} position.z={-1.1} />
+  <GrassPlatform
+    scale={0.7}
+    position.x={0.3}
+    position.y={1.15}
+    position.z={-1.1}
+  />
 
-  <GrassPlatform scale={0.7} position.x={0.4} position.y={1.15} position.z={-1.9} />
+  <GrassPlatform
+    scale={0.7}
+    position.x={0.4}
+    position.y={1.15}
+    position.z={-1.9}
+  />
 
   <ProfileIsland />
 

@@ -1,20 +1,15 @@
 <script lang="ts">
   import { T } from "@threlte/core";
-  import { Text3DGeometry, Suspense, HTML } from "@threlte/extras";
-  import heightForItems from "$lib/heightForItems";
+  import { HTML } from "@threlte/extras";
+  import { heightForItems } from "$lib/stores";
   import LargeIsland from "./models/LargeIsland.svelte";
   import Tree from "./models/Tree.svelte";
   import SmallRock from "./models/SmallRock.svelte";
-  import WoodenSign from "./models/WoodenSign.svelte";
   import Grass1 from "./models/Grass1.svelte";
-  import FishingStand from "./models/FishingStand.svelte";
-  import SignpostSingle from "./models/SignpostSingle.svelte";
   import WoodenSign1 from "./models/WoodenSign1.svelte";
-    import FenceFortified from "./models/FenceFortified.svelte";
-    import Twig from "./models/Twig.svelte";
-    import Campfire from "./models/Campfire.svelte";
-    import Tent from "./models/Tent.svelte";
-    import StructureRoof from "./models/StructureRoof.svelte";
+  import Tent from "./models/Tent.svelte";
+  import StructureRoof from "./models/StructureRoof.svelte";
+  import { mesh } from "$lib/stores";
 
   const treeSettings = [
     { scale: 1, x: 0.1, y: $heightForItems, z: 0.5 },
@@ -59,15 +54,25 @@
 />
 
 <Tent
-scale={0.4}
+  scale={0.4}
   position.x={0.3}
   position.y={$heightForItems}
   position.z={-0.4}
   rotation.y={0.8}
 />
 
-<T.Mesh position.y={$heightForItems}>
-  <WoodenSign1 scale={0.16} position.x={-0.1} position.z={0.1} rotation.y={-1.9} />
+<T.Mesh
+  position.y={$heightForItems}
+  on:create={({ ref }) => {
+    $mesh = ref;
+  }}
+>
+  <WoodenSign1
+    scale={0.16}
+    position.x={-0.1}
+    position.z={0.1}
+    rotation.y={-1.9}
+  />
 
   <HTML
     transform
