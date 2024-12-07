@@ -4,7 +4,6 @@
     ContactShadows,
     Float,
     Grid,
-    OrbitControls,
     Sky,
   } from "@threlte/extras";
   import StartingIsland from "./StartingIsland.svelte";
@@ -14,7 +13,7 @@
   import ContactIsland from "./ContactIsland.svelte";
   import GrassPlatform from "./models/GrassPlatform.svelte";
   import CameraControls from "./CameraControls.svelte";
-  import { cameraControls, heightForItems, mesh } from "$lib/stores";
+  import { cameraControls } from "$lib/stores";
 </script>
 
 <T.PerspectiveCamera
@@ -28,7 +27,6 @@
   <CameraControls
     on:create={({ ref }) => {
       $cameraControls = ref;
-      $cameraControls.setLookAt(-10, 5, 7, 0, $heightForItems, 0);
     }}
   />
 </T.PerspectiveCamera>

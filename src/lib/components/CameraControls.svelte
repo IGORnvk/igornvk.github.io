@@ -31,6 +31,7 @@
     type PerspectiveCamera
   } from 'three'
   import { DEG2RAD } from 'three/src/math/MathUtils.js'
+    import { heightForItems } from '$lib/stores';
 
   const subsetOfTHREE = {
     Vector2,
@@ -61,6 +62,7 @@
   export let autoRotateSpeed = 1
 
   export const ref = new CameraControls($parent as PerspectiveCamera, renderer?.domElement)
+  ref.setLookAt(-10, 5, 7, 0, $heightForItems, 0)
 
   const getControls = () => ref
 
