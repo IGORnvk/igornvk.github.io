@@ -10,6 +10,7 @@
   import Tent from "./models/Tent.svelte";
   import StructureRoof from "./models/StructureRoof.svelte";
   import Bedroll1 from "./models/Bedroll1.svelte";
+    import Campfire from "./models/Campfire.svelte";
 
   const treeSettings = [
     { scale: 1, x: 0.1, y: $heightForItems, z: 0.5 },
@@ -51,6 +52,14 @@
   position.y={$heightForItems}
   position.z={-0.47}
   rotation.y={-1}
+/>
+
+<Campfire
+  scale={0.3}
+  position.x={-0.2}
+  position.y={$heightForItems}
+  position.z={-0.47}
+  rotation.y={0.2}
 />
 
 <Tent

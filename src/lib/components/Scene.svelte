@@ -68,8 +68,50 @@
 
 <ProfileIsland />
 
+<GrassPlatform
+  scale={0.7}
+  position.x={1.9}
+  position.y={1.15}
+  position.z={-2.3}
+/>
+
+<GrassPlatform
+  scale={0.7}
+  position.x={2.7}
+  position.y={1.15}
+  position.z={-1.9}
+/>
+
 <SkillsIsland />
 
+<GrassPlatform
+  scale={0.7}
+  position.x={4}
+  position.y={1.15}
+  position.z={-2.7}
+/>
+
+<GrassPlatform
+  scale={0.7}
+  position.x={4}
+  position.y={1.15}
+  position.z={-3.5}
+/>
+
 <ProjectsIsland />
+
+<GrassPlatform
+  scale={0.7}
+  position.x={5.3}
+  position.y={1.15}
+  position.z={-4.5}
+/>
+
+<GrassPlatform
+  scale={0.7}
+  position.x={6}
+  position.y={1.15}
+  position.z={-4.3}
+/>
 
 <ContactIsland />
