@@ -2,8 +2,8 @@
   import { T } from "@threlte/core";
   import {
     ContactShadows,
-    Float,
     Grid,
+    interactivity,
     Sky,
   } from "@threlte/extras";
   import StartingIsland from "./StartingIsland.svelte";
@@ -14,6 +14,8 @@
   import GrassPlatform from "./models/GrassPlatform.svelte";
   import CameraControls from "./CameraControls.svelte";
   import { cameraControls } from "$lib/stores";
+
+  interactivity();
 </script>
 
 <T.PerspectiveCamera
@@ -48,28 +50,26 @@
 
 <ContactShadows scale={20} blur={2} far={2.5} opacity={0.5} />
 
-<Float floatIntensity={1} floatingRange={[0, 0.3]}>
-  <StartingIsland />
+<StartingIsland />
 
-  <GrassPlatform
-    scale={0.7}
-    position.x={0.3}
-    position.y={1.15}
-    position.z={-1.1}
-  />
+<GrassPlatform
+  scale={0.7}
+  position.x={0.3}
+  position.y={1.15}
+  position.z={-1.1}
+/>
 
-  <GrassPlatform
-    scale={0.7}
-    position.x={0.4}
-    position.y={1.15}
-    position.z={-1.9}
-  />
+<GrassPlatform
+  scale={0.7}
+  position.x={0.4}
+  position.y={1.15}
+  position.z={-1.9}
+/>
 
-  <ProfileIsland />
+<ProfileIsland />
 
-  <SkillsIsland />
+<SkillsIsland />
 
-  <ProjectsIsland />
+<ProjectsIsland />
 
-  <ContactIsland />
-</Float>
+<ContactIsland />

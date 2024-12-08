@@ -1,7 +1,7 @@
 <script lang="ts">
   import { T } from "@threlte/core";
   import { HTML } from "@threlte/extras";
-  import { heightForItems } from "$lib/stores";
+  import { handleCameraMovement, heightForItems, mesh } from "$lib/stores";
   import LargeIsland from "./models/LargeIsland.svelte";
   import Tree from "./models/Tree.svelte";
   import SmallRock from "./models/SmallRock.svelte";
@@ -9,7 +9,7 @@
   import WoodenSign1 from "./models/WoodenSign1.svelte";
   import Tent from "./models/Tent.svelte";
   import StructureRoof from "./models/StructureRoof.svelte";
-  import { mesh } from "$lib/stores";
+  import Bedroll1 from "./models/Bedroll1.svelte";
 
   const treeSettings = [
     { scale: 1, x: 0.1, y: $heightForItems, z: 0.5 },
@@ -19,7 +19,7 @@
 
   const grassCoords = [
     { x: 0.1, y: $heightForItems, z: 0.35 },
-    { x: 0.2, y: $heightForItems, z: -0.1 },
+    { x: 0.3, y: $heightForItems, z: -0.05 },
   ];
 </script>
 
@@ -61,6 +61,14 @@
   rotation.y={0.8}
 />
 
+<Bedroll1
+  scale={0.4}
+  position.x={0.3}
+  position.y={$heightForItems}
+  position.z={-0.4}
+  rotation.y={0.8}
+/>
+
 <T.Mesh
   position.y={$heightForItems}
   on:create={({ ref }) => {
@@ -76,13 +84,15 @@
 
   <HTML
     transform
-    pointerEvents="none"
     position.x={-0.11}
     position.z={0.1}
     position.y={0.345}
     rotation.y={-1.9}
-    occlude
   >
-    <button class="text-white" style="font-size: 1px;">Start</button>
+    <button
+      on:click={$handleCameraMovement(0, 2.4, -0.4, 0.8, 1.7, -3)}
+      class="text-white"
+      style="font-size: 1px;">Start</button
+    >
   </HTML>
 </T.Mesh>
