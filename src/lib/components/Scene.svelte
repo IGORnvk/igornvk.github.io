@@ -12,9 +12,9 @@
   import ProjectsIsland from "./ProjectsIsland.svelte";
   import ContactIsland from "./ContactIsland.svelte";
   import GrassPlatform from "./models/GrassPlatform.svelte";
+  import GhostCompanion from "./models/GhostCompanion.svelte";
   import CameraControls from "./CameraControls.svelte";
   import { cameraControls } from "$lib/stores";
-  import GhostCompanion from "./models/GhostCompanion.svelte";
 
   interactivity();
 </script>
@@ -53,10 +53,7 @@
 
 <GhostCompanion 
   scale={0.1}
-  position.x={-8}
-  position.y={4.5}
-  position.z={6}
-  rotation.y={2.1}
+  rotation.y={-0.2}
 />
 
 <StartingIsland />

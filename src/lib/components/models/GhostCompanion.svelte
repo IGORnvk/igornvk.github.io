@@ -4,9 +4,9 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\GhostC
 -->
 
 <script lang="ts">
-  import type * as THREE from 'three'
+  import * as THREE from 'three'
   import { Group } from 'three'
-  import { T, type Props, type Events, type Slots, forwardEventHandlers } from '@threlte/core'
+  import { T, type Props, type Events, type Slots, forwardEventHandlers, useThrelte } from '@threlte/core'
   import { useGltf, useGltfAnimations } from '@threlte/extras'
   import { onMount } from 'svelte';
 
@@ -27,9 +27,13 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\GhostC
   }
 
   const gltf = useGltf<GLTFResult>('/models/GhostCompanion.glb')
+  const { camera } = useThrelte();
   export const { actions, mixer } = useGltfAnimations<ActionName>(gltf, ref)
 
   onMount(() => {
+    camera.current.add(ref);
+    ref.position.set(0.5, 0, -2);
+
     const interval = setInterval(() => {
       const action = actions.current['Mesh_0Action'] as THREE.AnimationAction;
 
@@ -38,8 +42,8 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\GhostC
         action.play();
       }
     }, 50);
-  })
-
+  });
+  
   const component = forwardEventHandlers()
 </script>
 
