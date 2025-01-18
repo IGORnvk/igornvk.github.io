@@ -14,6 +14,7 @@
   import GrassPlatform from "./models/GrassPlatform.svelte";
   import CameraControls from "./CameraControls.svelte";
   import { cameraControls } from "$lib/stores";
+  import GhostCompanion from "./models/GhostCompanion.svelte";
 
   interactivity();
 </script>
@@ -49,6 +50,14 @@
 />
 
 <ContactShadows scale={20} blur={2} far={2.5} opacity={0.5} />
+
+<GhostCompanion 
+  scale={0.1}
+  position.x={-8}
+  position.y={4.5}
+  position.z={6}
+  rotation.y={2.1}
+/>
 
 <StartingIsland />
 
