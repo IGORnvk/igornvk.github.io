@@ -5,10 +5,11 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\GhostC
 
 <script lang="ts">
   import * as THREE from 'three'
-  import { Group } from 'three'
-  import { T, type Props, type Events, type Slots, forwardEventHandlers, useThrelte } from '@threlte/core'
+  import { T, type Props, type Events, type Slots, forwardEventHandlers, useThrelte, useFrame } from '@threlte/core'
   import { useGltf, useGltfAnimations } from '@threlte/extras'
-  import { onMount } from 'svelte';
+  import { onMount } from 'svelte'
+  import { Group } from 'three'
+  import { ghostCompanion } from '$lib/stores'
 
   type $$Props = Props<THREE.Group>
   type $$Events = Events<THREE.Group>
@@ -43,6 +44,8 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\GhostC
       }
     }, 50);
   });
+
+  $ghostCompanion = ref;
   
   const component = forwardEventHandlers()
 </script>

@@ -31,6 +31,7 @@
     type PerspectiveCamera
   } from 'three'
   import { DEG2RAD } from 'three/src/math/MathUtils.js'
+  import { cameraControls } from '$lib/stores';
 
   const subsetOfTHREE = {
     Vector2,
@@ -79,6 +80,8 @@
       autoInvalidate: false
     }
   )
+
+  $cameraControls = ref;
 
   const forwardingComponent = forwardEventHandlers()
 </script>

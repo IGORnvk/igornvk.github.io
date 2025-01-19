@@ -33,6 +33,7 @@
     "@threlte/flex": "^1.0.3",
     "@threlte/rapier": "^2.0.1",
     "@threlte/theatre": "^2.1.8",
+    "@tweenjs/tween.js": "^25.0.0",
     "camera-controls": "^2.9.0",
     "three": "^0.159.0"
   }

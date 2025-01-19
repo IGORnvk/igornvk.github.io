@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { T } from "@threlte/core";
+  import { T, useFrame } from "@threlte/core";
   import {
     ContactShadows,
     Grid,
@@ -14,7 +14,12 @@
   import GrassPlatform from "./models/GrassPlatform.svelte";
   import GhostCompanion from "./models/GhostCompanion.svelte";
   import CameraControls from "./CameraControls.svelte";
-  import { cameraControls } from "$lib/stores";
+  import { ghostCompanion } from "$lib/stores";
+  import { rotateObject, updateTweens } from "$lib/animationHelpers";
+
+  useFrame(() => {
+    updateTweens();
+  });
 
   interactivity();
 </script>
@@ -23,15 +28,8 @@
   makeDefault
   position={[-10, 5, 7]}
   fov={30}
-  on:create={({ ref }) => {
-    ref.lookAt(0, 1, 0);
-  }}
 >
-  <CameraControls
-    on:create={({ ref }) => {
-      $cameraControls = ref;
-    }}
-  />
+  <CameraControls />
 </T.PerspectiveCamera>
 
 <Sky />
@@ -54,6 +52,7 @@
 <GhostCompanion 
   scale={0.1}
   rotation.y={-0.2}
+  on:click={() => {rotateObject($ghostCompanion, 'y', -2)}}
 />
 
 <StartingIsland />
