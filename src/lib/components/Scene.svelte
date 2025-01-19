@@ -3,9 +3,12 @@
   import {
     ContactShadows,
     Grid,
+    HTML,
     interactivity,
     Sky,
   } from "@threlte/extras";
+  import { ghostCompanion } from "$lib/stores";
+  import { rotateObject, updateTweens } from "$lib/animationHelpers";
   import StartingIsland from "./StartingIsland.svelte";
   import ProfileIsland from "./ProfileIsland.svelte";
   import SkillsIsland from "./SkillsIsland.svelte";
@@ -14,8 +17,7 @@
   import GrassPlatform from "./models/GrassPlatform.svelte";
   import GhostCompanion from "./models/GhostCompanion.svelte";
   import CameraControls from "./CameraControls.svelte";
-  import { ghostCompanion } from "$lib/stores";
-  import { rotateObject, updateTweens } from "$lib/animationHelpers";
+    import DialogPopup from "./DialogPopup.svelte";
 
   useFrame(() => {
     updateTweens();
@@ -54,6 +56,11 @@
   rotation.y={-0.2}
   on:click={() => {rotateObject($ghostCompanion, 'y', -2)}}
 />
+
+<HTML
+  position.y={4}>
+  <DialogPopup />
+</HTML>
 
 <StartingIsland />
 

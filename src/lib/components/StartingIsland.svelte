@@ -10,7 +10,7 @@
   import Tent from "./models/Tent.svelte";
   import StructureRoof from "./models/StructureRoof.svelte";
   import Bedroll1 from "./models/Bedroll1.svelte";
-    import Campfire from "./models/Campfire.svelte";
+  import Campfire from "./models/Campfire.svelte";
 
   const treeSettings = [
     { scale: 1, x: 0.1, y: $heightForItems, z: 0.5 },
