@@ -17,7 +17,7 @@
   import GrassPlatform from "./models/GrassPlatform.svelte";
   import GhostCompanion from "./models/GhostCompanion.svelte";
   import CameraControls from "./CameraControls.svelte";
-    import DialogPopup from "./DialogPopup.svelte";
+  import DialogPopup from "./DialogPopup.svelte";
 
   useFrame(() => {
     updateTweens();
@@ -57,10 +57,7 @@
   on:click={() => {rotateObject($ghostCompanion, 'y', -2)}}
 />
 
-<HTML
-  position.y={4}>
-  <DialogPopup />
-</HTML>
+<DialogPopup />
 
 <StartingIsland />
 
