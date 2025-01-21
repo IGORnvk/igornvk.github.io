@@ -3,12 +3,13 @@
   import {
     ContactShadows,
     Grid,
-    HTML,
     interactivity,
     Sky,
   } from "@threlte/extras";
-  import { ghostCompanion } from "$lib/stores";
   import { rotateObject, updateTweens } from "$lib/animationHelpers";
+  import { ghostCompanion } from "$lib/stores";
+  import { dialogRenderer } from "$lib/dialogHelpers";
+  import { onMount } from "svelte";
   import StartingIsland from "./StartingIsland.svelte";
   import ProfileIsland from "./ProfileIsland.svelte";
   import SkillsIsland from "./SkillsIsland.svelte";
@@ -21,6 +22,10 @@
 
   useFrame(() => {
     updateTweens();
+  });
+
+  onMount(() => {
+    window.addEventListener('keydown', dialogRenderer);
   });
 
   interactivity();

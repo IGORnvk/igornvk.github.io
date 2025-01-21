@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { cameraControls, mesh } from "$lib/stores";
+  import { mesh } from "$lib/stores";
+  import { moveCameraTo } from "$lib/animationHelpers";
   import { T } from "@threlte/core";
   import { HTML } from "@threlte/extras";
   import Chest from "./models/Chest.svelte";
@@ -127,7 +128,7 @@
 
   <HTML transform position.x={0.807} position.z={-2.9} position.y={0.36}>
     <button
-      on:click={$cameraControls.setLookAt(1, 2.5, -2, 4, 1.5, -1.4, true)}
+      on:click={() => { moveCameraTo(1, 2.5, -2, 4, 1.5, -1.4) }}
       class="text-white"
       style="font-size: 1px;">Next</button
     >

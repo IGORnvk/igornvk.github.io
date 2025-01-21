@@ -1,7 +1,8 @@
 <script lang="ts">
+  import { heightForItems, mesh } from "$lib/stores";
+  import { moveCameraTo } from "$lib/animationHelpers";
   import { T } from "@threlte/core";
   import { HTML } from "@threlte/extras";
-  import { cameraControls, heightForItems, mesh } from "$lib/stores";
   import LargeIsland from "./models/LargeIsland.svelte";
   import Tree from "./models/Tree.svelte";
   import SmallRock from "./models/SmallRock.svelte";
@@ -99,7 +100,7 @@
     rotation.y={-1.9}
   >
     <button
-      on:click={$cameraControls.setLookAt(0, 2.4, -0.4, 0.8, 1.7, -3, true)}
+      on:click={() => { moveCameraTo(0, 2.4, -0.4, 0.8, 1.7, -3) }}
       class="text-white"
       style="font-size: 1px;">Start</button
     >
