@@ -1,44 +1,56 @@
 import { get } from "svelte/store";
 import quotes from "./data/quotes.json";
 import { currentQuote, dialogWindow } from "./stores";
+import { moveToIsland } from "./stateChangeHelpers";
 
+let dialogNumber = 0;
 let quoteNumber = 0;
-let keyListener = true;
 
 export const dialogRenderer = (event: KeyboardEvent) => {
-  if (event.code === 'KeyF' && keyListener) {
-    quoteNumber++;
+  // Switch to the next/previous quote.
+  if (event.code === 'KeyD') quoteNumber++;
+  else if (event.code === 'KeyA' && quoteNumber != 0) quoteNumber--;
 
-    if (!quotes[quoteNumber]) {
-      deactivateKeyListener();
-      
-      return;
-    }
+  // Deactivate keyboard input or/and proceed to the next dialog.
+  if (!quotes[dialogNumber][quoteNumber]) {
+    deactivateKeyListener();
+    hideDialogWindow();
 
-    if (quotes[quoteNumber].hide) {
-      hideDialogWindow();
-      deactivateKeyListener();
+    dialogNumber++;
+    quoteNumber = 0;
+
+    if (quotes[dialogNumber] && quotes[dialogNumber][quoteNumber]) {
+      moveToIsland(dialogNumber);
     }
     
-    setCurrentQuote(quotes[quoteNumber].text);
+    return;
   }
+  
+  // Render new quote in the dialog box.
+  setCurrentQuote(quotes[dialogNumber][quoteNumber]);
 };
 
-export const activateKeyListener = () => {
-  keyListener = true;
+export const activateKeyListener = (delay = 0) => {
+  setTimeout(() => {
+    window.addEventListener('keydown', dialogRenderer);
+  }, delay);
 };
 
-export const deactivateKeyListener = () => {
-  keyListener = false;
+export const deactivateKeyListener = (delay = 0) => {
+  setTimeout(() => {
+    window.removeEventListener('keydown', dialogRenderer);
+  }, delay);
 };
 
 export const hideDialogWindow = () => {
   get(dialogWindow).position.set(0, 0, 0);
 };
 
-export const showDialogWindow = (distanceFromCamera: number) => {
-  get(dialogWindow).position.set(0, 0, distanceFromCamera);
-}
+export const showDialogWindow = (distanceFromCamera: number, delay = 3000) => {
+  setTimeout(() => {
+    get(dialogWindow).position.set(0, 0, -distanceFromCamera);
+  }, delay);
+};
 
 export const setCurrentQuote = (quote: string) => {
   currentQuote.set(quote);

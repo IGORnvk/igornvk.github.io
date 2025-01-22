@@ -8,4 +8,4 @@ export const cameraControls = writable<CameraControls>(null);
 export const mesh = writable<Mesh>(null);
 export const ghostCompanion = writable<Group>(new Group());
 export const dialogWindow = writable<Group>(new Group());
-export const currentQuote = writable<string>(quotes[0].text);
+export const currentQuote = writable<string>(quotes[0][0]);

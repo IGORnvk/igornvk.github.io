@@ -8,7 +8,7 @@
   } from "@threlte/extras";
   import { rotateObject, updateTweens } from "$lib/animationHelpers";
   import { ghostCompanion } from "$lib/stores";
-  import { dialogRenderer } from "$lib/dialogHelpers";
+  import { activateKeyListener, dialogRenderer } from "$lib/dialogHelpers";
   import { onMount } from "svelte";
   import StartingIsland from "./StartingIsland.svelte";
   import ProfileIsland from "./ProfileIsland.svelte";
@@ -25,7 +25,7 @@
   });
 
   onMount(() => {
-    window.addEventListener('keydown', dialogRenderer);
+    activateKeyListener();
   });
 
   interactivity();
@@ -59,7 +59,6 @@
 <GhostCompanion 
   scale={0.1}
   rotation.y={-0.2}
-  on:click={() => {rotateObject($ghostCompanion, 'y', -2)}}
 />
 
 <DialogPopup />
