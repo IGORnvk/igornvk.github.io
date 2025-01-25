@@ -1,8 +1,4 @@
 <script lang="ts">
-  import { mesh } from "$lib/stores";
-  import { moveCameraTo } from "$lib/animationHelpers";
-  import { T } from "@threlte/core";
-  import { HTML } from "@threlte/extras";
   import Chest from "./models/Chest.svelte";
   import DingusTheCat from "./models/DingusTheCat.svelte";
   import Lute from "./models/Lute.svelte";
@@ -11,7 +7,6 @@
   import PalmTree1 from "./models/PalmTree1.svelte";
   import Sawmill from "./models/Sawmill.svelte";
   import SmallShip from "./models/SmallShip.svelte";
-  import WoodenSign2 from "./models/WoodenSign2.svelte";
   import FishBucket from "./models/FishBucket.svelte";
   import Barrel from "./models/Barrel.svelte";
   import Skull from "./models/Skull.svelte";
@@ -117,20 +112,3 @@
   position.z={-3.5}
   rotation.y={4}
 />
-
-<T.Mesh
-  position.y={1.5}
-  on:create={({ ref }) => {
-    $mesh = ref;
-  }}
->
-  <WoodenSign2 scale={0.16} position.x={0.7} position.z={-2.9} />
-
-  <HTML transform position.x={0.807} position.z={-2.9} position.y={0.36}>
-    <button
-      on:click={() => { moveCameraTo(1, 2.5, -2, 4, 1.5, -1.4) }}
-      class="text-white"
-      style="font-size: 1px;">Next</button
-    >
-  </HTML>
-</T.Mesh>

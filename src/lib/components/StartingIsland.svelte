@@ -1,13 +1,9 @@
 <script lang="ts">
   import { heightForItems, mesh } from "$lib/stores";
-  import { moveCameraTo } from "$lib/animationHelpers";
-  import { T } from "@threlte/core";
-  import { HTML } from "@threlte/extras";
   import LargeIsland from "./models/LargeIsland.svelte";
   import Tree from "./models/Tree.svelte";
   import SmallRock from "./models/SmallRock.svelte";
   import Grass1 from "./models/Grass1.svelte";
-  import WoodenSign1 from "./models/WoodenSign1.svelte";
   import Tent from "./models/Tent.svelte";
   import StructureRoof from "./models/StructureRoof.svelte";
   import Bedroll1 from "./models/Bedroll1.svelte";
@@ -78,31 +74,3 @@
   position.z={-0.4}
   rotation.y={0.8}
 />
-
-<T.Mesh
-  position.y={$heightForItems}
-  on:create={({ ref }) => {
-    $mesh = ref;
-  }}
->
-  <WoodenSign1
-    scale={0.16}
-    position.x={-0.1}
-    position.z={0.1}
-    rotation.y={-1.9}
-  />
-
-  <HTML
-    transform
-    position.x={-0.11}
-    position.z={0.1}
-    position.y={0.345}
-    rotation.y={-1.9}
-  >
-    <button
-      on:click={() => { moveCameraTo(0, 2.4, -0.4, 0.8, 1.7, -3) }}
-      class="text-white"
-      style="font-size: 1px;">Start</button
-    >
-  </HTML>
-</T.Mesh>
