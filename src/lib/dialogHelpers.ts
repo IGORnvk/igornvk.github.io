@@ -2,7 +2,7 @@ import { get } from "svelte/store";
 import quotes from "./data/quotes.json";
 import { currentQuote, dialogWindow, ghostCompanion } from "./stores";
 import { moveToIsland } from "./stateChangeHelpers";
-import { attachToCamera } from "./animationHelpers";
+import { attachToCamera, setLookAtCamera } from "./animationHelpers";
 
 let dialogNumber = 0;
 let quoteNumber = 0;
@@ -14,6 +14,7 @@ export const dialogRenderer = async (event: KeyboardEvent) => {
 
   // Deactivate keyboard input or/and proceed to the next dialog.
   if (!quotes[dialogNumber][quoteNumber]) {
+    setLookAtCamera(false);
     deactivateKeyListener();
     hideDialogWindow();
 

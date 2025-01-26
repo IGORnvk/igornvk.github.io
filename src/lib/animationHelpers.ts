@@ -4,6 +4,7 @@ import { cameraControls } from "./stores";
 import { Euler, Quaternion, Vector3, type Object3D } from "three";
 
 const tweenGroup = new Group();
+let lookAtCamera = false;
 
 export const updateTweens = (time = performance.now()) => {
   tweenGroup.update(time);
@@ -59,6 +60,18 @@ export const smoothLookAt = (object: Object3D, targetObject: Object3D, delay = 0
   });
 };
 
+export const setLookAtCamera = (value: boolean) => {
+  lookAtCamera = value;
+};
+
+export const alwaysLookAtCamera = (object: Object3D) => {
+  if (lookAtCamera) {
+    let cameraPos = new Vector3();
+    get(cameraControls).camera.getWorldPosition(cameraPos);
+    object.lookAt(cameraPos);
+  }
+};
+
 export const moveObjectTo = (object: Object3D, position: Euler | Vector3, delay = 0, duration = 1000) => {
   return new Promise<void>((resolve) => {
     return prepareTween(object.position, resolve)
@@ -73,8 +86,9 @@ export const moveCameraTo = async (pos: Euler, target: Euler) => {
     const camera = get(cameraControls);
 
     camera.enabled = false;
-    const promise = camera.setLookAt(pos.x, pos.y, pos.z, target.x, target.y, target.z, true);
-    camera.enabled = true;
+    const promise = camera.setLookAt(pos.x, pos.y, pos.z, target.x, target.y, target.z, true).then(() => {
+      camera.enabled = true;
+    });
 
     return promise;
 };

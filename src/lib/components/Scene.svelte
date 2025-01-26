@@ -6,7 +6,8 @@
     interactivity,
     Sky,
   } from "@threlte/extras";
-  import { updateTweens } from "$lib/animationHelpers";
+  import { alwaysLookAtCamera, updateTweens } from "$lib/animationHelpers";
+  import { ghostCompanion } from "$lib/stores";
   import { activateKeyListener } from "$lib/dialogHelpers";
   import { onMount } from "svelte";
   import StartingIsland from "./StartingIsland.svelte";
@@ -21,6 +22,8 @@
 
   useFrame(() => {
     updateTweens();
+
+    alwaysLookAtCamera($ghostCompanion);
   });
 
   onMount(() => {

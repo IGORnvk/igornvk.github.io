@@ -1,4 +1,4 @@
-import { detachFromCamera, moveCameraTo, moveObjectTo, rotateObjectTo, scaleObjectTo, smoothLookAt } from "./animationHelpers";
+import { detachFromCamera, moveCameraTo, moveObjectTo, rotateObjectTo, scaleObjectTo, setLookAtCamera, smoothLookAt } from "./animationHelpers";
 import { get } from "svelte/store";
 import { cameraControls, ghostCompanion } from "./stores";
 import { activateKeyListener, showDialogWindow } from "./dialogHelpers";
@@ -41,6 +41,7 @@ export const moveToIsland = async (islandNumber: number) => {
   await scaleObjectTo(companion, 0.07);
   await smoothLookAt(companion, camera);
   
+  setLookAtCamera(true);
   activateKeyListener();
   showDialogWindow(50);
 };

@@ -63,6 +63,7 @@
 
   export const ref = new CameraControls($parent as PerspectiveCamera, renderer?.domElement)
   ref.setLookAt(-10, 5, 7, 0, 1.6, 0)
+  ref.mouseButtons.right = CameraControls.ACTION.NONE
 
   const getControls = () => ref
 
