@@ -11,7 +11,6 @@
   import { activateKeyListener } from "$lib/dialogHelpers";
   import { onMount } from "svelte";
   import StartingIsland from "./StartingIsland.svelte";
-  import ProfileIsland from "./ProfileIsland.svelte";
   import SkillsIsland from "./SkillsIsland.svelte";
   import ProjectsIsland from "./ProjectsIsland.svelte";
   import ContactIsland from "./ContactIsland.svelte";
@@ -80,7 +79,7 @@
   position.z={-1.9}
 />
 
-<ProfileIsland />
+<ProjectsIsland />
 
 <GrassPlatform
   scale={0.7}
@@ -110,22 +109,6 @@
   position.x={4}
   position.y={1.15}
   position.z={-3.5}
-/>
-
-<ProjectsIsland />
-
-<GrassPlatform
-  scale={0.7}
-  position.x={5.3}
-  position.y={1.15}
-  position.z={-4.5}
-/>
-
-<GrassPlatform
-  scale={0.7}
-  position.x={6}
-  position.y={1.15}
-  position.z={-4.3}
 />
 
 <ContactIsland />

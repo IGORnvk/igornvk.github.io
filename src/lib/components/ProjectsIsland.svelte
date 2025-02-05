@@ -2,4 +2,4 @@
   import Island from "./models/Island.svelte";
 </script>
 
-<Island scale={2} position.x={4} position.z={-5} />
+<Island scale={2} position.x={0.8} position.z={-3.3} />

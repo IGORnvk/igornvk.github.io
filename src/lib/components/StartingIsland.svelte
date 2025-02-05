@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { heightForItems, mesh } from "$lib/stores";
+  import { heightForItems } from "$lib/stores";
   import LargeIsland from "./models/LargeIsland.svelte";
   import Tree from "./models/Tree.svelte";
   import SmallRock from "./models/SmallRock.svelte";
