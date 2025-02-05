@@ -43,5 +43,5 @@ export const moveToIsland = async (islandNumber: number) => {
   
   setLookAtCamera(true);
   activateKeyListener();
-  showDialogWindow(50);
+  showDialogWindow();
 };

@@ -39,6 +39,22 @@
           --aug-border-x: 0px;
           "
   >
-    { $currentQuote }
+    <div>
+      { $currentQuote }
+    </div>
+    <div class="mt-10 flex justify-between">
+      <div class="flex gap-2">
+        <p
+          data-augmented-ui="border"
+          class="px-2 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">A</p>
+        <p>Previous</p>
+      </div>
+      <div class="flex gap-2">
+        <p
+          data-augmented-ui="border"
+          class="px-2 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">D</p>
+        <p>Next</p>
+      </div>
+    </div>
   </div>
 </HTML>
