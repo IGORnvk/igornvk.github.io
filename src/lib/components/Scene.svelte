@@ -8,7 +8,7 @@
   } from "@threlte/extras";
   import { alwaysLookAtCamera, updateTweens } from "$lib/animationHelpers";
   import { ghostCompanion } from "$lib/stores";
-  import { activateKeyListener } from "$lib/dialogHelpers";
+  import { activateKeyListener, getDialogNumber } from "$lib/dialogHelpers";
   import { onMount } from "svelte";
   import StartingIsland from "./StartingIsland.svelte";
   import SkillsIsland from "./SkillsIsland.svelte";
@@ -21,8 +21,8 @@
 
   useFrame(() => {
     updateTweens();
-
-    alwaysLookAtCamera($ghostCompanion);
+    
+    if (getDialogNumber() > 0) alwaysLookAtCamera($ghostCompanion);
   });
 
   onMount(() => {
