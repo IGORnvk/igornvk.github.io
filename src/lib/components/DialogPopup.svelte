@@ -28,13 +28,9 @@
   transform
   sprite
 >
-  <div class="w-8 h-1 bg-main absolute top-0 z-10"></div>
-  <div class="w-8 h-1 bg-main absolute top-0 z-10 -right-0"></div>
-  <div class="w-8 h-1 bg-main absolute bottom-0 z-10"></div>
-  <div class="w-8 h-1 bg-main absolute bottom-0 z-10 right-0"></div>
   <div
-    data-augmented-ui="both"
-    class="inline-block w-auto max-w-xl p-7 font-bold sm:text-xl text-main uppercase break-words"
+    data-augmented-ui="both tl-clip-x br-clip-x tr-clip bl-clip"
+    class="inline-block w-screen max-w-xl px-7 pb-7 pt-10 font-bold sm:text-xl text-main uppercase break-words"
     style="
           --aug-inlay-bg: #172554;
           --aug-border-bg: #4cd0fc;
@@ -45,6 +41,14 @@
           --aug-border-x: 0px;
           "
   >
+    <div class="flex gap-1 absolute right-4 top-3 text-sm sm:text-base">
+      <div data-augmented-ui="border" class="px-0.5 sm:px-2 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="size-5 sm:hidden">
+          <path fill="#4cd0fc" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+        </svg>
+        <p class="hidden sm:block">H</p>
+      </div>
+    </div>
     <div>
       { $currentQuote }
     </div>
@@ -54,14 +58,14 @@
           <p
             data-augmented-ui="border"
             class="px-2 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">A</p>
-          <p>Previous</p>
+          Previous
         </div>
       {/if}
       <div class="flex gap-2 ml-auto">
         <p
           data-augmented-ui="border"
           class="px-2 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">D</p>
-        <p>Next</p>
+        Next
       </div>
     </div>
   </div>
