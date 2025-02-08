@@ -10,7 +10,7 @@
 
   onMount(() => {
     camera.current.add(ref);
-    ref.position.set(0, -14.5, -55);
+    ref.position.set(0, -14.5 + (window.innerHeight - window.visualViewport?.height), -55);
 
     // Cleanup logic for animations.
     const container = document.getElementById('dialogWindowContainerHidden');
