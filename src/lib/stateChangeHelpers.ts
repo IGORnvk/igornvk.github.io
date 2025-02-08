@@ -21,7 +21,7 @@ const islandSettings = {
       3: 1.8
     },
     position: {
-      1: { x: 0, y: 1.5, z: 0.3 },
+      1: { x: -0.1, y: 1.5, z: 0.5 },
       2: { x: 1, y: 1.6, z: -3 }
     }
   },

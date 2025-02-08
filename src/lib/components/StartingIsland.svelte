@@ -1,46 +1,102 @@
 <script lang="ts">
   import { heightForItems } from "$lib/stores";
   import LargeIsland from "./models/LargeIsland.svelte";
-  import Tree from "./models/Tree.svelte";
-  import SmallRock from "./models/SmallRock.svelte";
-  import Grass1 from "./models/Grass1.svelte";
   import Tent from "./models/Tent.svelte";
   import StructureRoof from "./models/StructureRoof.svelte";
   import Bedroll1 from "./models/Bedroll1.svelte";
   import Campfire from "./models/Campfire.svelte";
-
-  const treeSettings = [
-    { scale: 1, x: 0.1, y: $heightForItems, z: 0.5 },
-    { scale: 0.7, x: 0.2, y: $heightForItems, z: 0.2 },
-    { scale: 1.3, x: 0.3, y: $heightForItems, z: -0.1 },
-  ];
-
-  const grassCoords = [
-    { x: 0.1, y: $heightForItems, z: 0.35 },
-    { x: 0.3, y: $heightForItems, z: -0.05 },
-  ];
+  import Windmill from "./models/Windmill.svelte";
+  import Tulips from "./models/Tulips.svelte";
+  import Grass1 from "./models/Grass1.svelte";
+  import Bike from "./models/Bike.svelte";
 </script>
 
 <LargeIsland />
 
-{#each treeSettings as tree}
-  <Tree
-    scale={tree.scale}
-    position.x={tree.x}
-    position.y={tree.y}
-    position.z={tree.z}
-  />
-{/each}
+<Windmill
+  scale={0.3}
+  position.x={0.2}
+  position.y={1.7}
+  position.z={0.2}
+  rotation.y={-1.7}
+/>
 
-{#each grassCoords as grass}
-  <Grass1 position.x={grass.x} position.y={grass.y} position.z={grass.z} />
-{/each}
+<Bike
+  scale={0.0008}
+  position.x={0.2}
+  position.y={1.4}
+  position.z={-0.2}
+  rotation.y={2.5}
+/>
 
-<SmallRock
+<Tulips
+  scale={0.1}
+  position.x={0.4}
+  position.y={1.45}
+  position.z={-0.2}
+/>
+
+<Tulips
+  scale={0.1}
+  position.x={0.2}
+  position.y={1.45}
+  position.z={-0.05}
+/>
+
+<Tulips
+  scale={0.1}
+  position.x={0.35}
+  position.y={1.45}
+  position.z={-0.05}
+/>
+
+<Grass1
+  scale={0.4}
+  position.x={0.45}
+  position.y={1.4}
+  position.z={0.05}
+/>
+
+<Grass1
+  scale={0.4}
+  position.x={0.2}
+  position.y={1.4}
+  position.z={-0.05}
+/>
+
+<Grass1
   scale={0.4}
   position.x={0.4}
-  position.y={$heightForItems}
-  position.z={0.2}
+  position.y={1.4}
+  position.z={-0.1}
+/>
+
+<Grass1
+  scale={0.4}
+  position.x={-0.1}
+  position.y={1.4}
+  position.z={0.35}
+/>
+
+<Grass1
+  scale={0.4}
+  position.x={-0.15}
+  position.y={1.4}
+  position.z={0.5}
+/>
+
+<Grass1
+  scale={0.4}
+  position.x={0}
+  position.y={1.4}
+  position.z={0.5}
+/>
+
+<Tulips
+  scale={0.1}
+  position.x={0}
+  position.y={1.45}
+  position.z={0.5}
 />
 
 <StructureRoof
