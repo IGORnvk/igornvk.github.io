@@ -1,7 +1,7 @@
 import { get } from "svelte/store";
 import { currentQuote, dialogWindow, ghostCompanion } from "./stores";
 import { moveToIsland } from "./stateChangeHelpers";
-import { attachToCamera, setLookAtCamera } from "./animationHelpers";
+import { attachToCamera, setLookAtCamera, slideDialogWindow } from "./animationHelpers";
 import quotes from "./data/quotes.json";
 
 let dialogNumber = 0;
@@ -10,8 +10,14 @@ let quoteNumber = 0;
 export const dialogRenderer = async (event: KeyboardEvent) => {
   // Handle hiding the dialog window on demand.
   if (event.code === 'KeyH') {
-    if (dialogWindowHidden()) showDialogWindow();
-    else hideDialogWindow();
+    // When hiding the window, animation should be played first,
+    // and only after that the position should be changed.
+    // In case of showing the window, it's the other way around.
+    if (dialogWindowHidden()) {
+      showDialogWindow();
+    } else {
+      slideDialogWindow('out');
+    }
 
     return;
   }
@@ -27,7 +33,7 @@ export const dialogRenderer = async (event: KeyboardEvent) => {
     if (!quotes[dialogNumber][quoteNumber]) {
       setLookAtCamera(false);
       deactivateKeyListener();
-      hideDialogWindow();
+      slideDialogWindow('out');
 
       dialogNumber++;
       quoteNumber = 0;
@@ -59,6 +65,7 @@ export const hideDialogWindow = (): void => {
 };
 
 export const showDialogWindow = (distanceFromCamera = 55): void => {
+  slideDialogWindow('in');
   get(dialogWindow).position.set(0, 0, -distanceFromCamera);
 };
 

@@ -165,3 +165,8 @@ export const attachToCamera = async (object: Object3D, delay = 0, initial = fals
     }
   });
 };
+
+export const slideDialogWindow = (direction: 'in' | 'out') => {
+  const dialogWindowContainer = document.getElementById('dialogWindowContainer');
+  dialogWindowContainer?.classList.add(`animate-slide-${direction}`);
+}

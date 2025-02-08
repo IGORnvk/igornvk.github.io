@@ -8,9 +8,34 @@ export default {
       },
       colors: {
         'main': '#4cd0fc',
-      }
+      },
+      animation: {
+        'slide-out': 'slideout 0.5s ease-out forwards',
+        'slide-in': 'slidein 0.5s ease-out forwards',
+      },
+      keyframes: {
+        slideout: {
+          from: {
+            transform: 'translateY(0) scaleX(1)',
+            opacity: 1
+          },
+          to: {
+            transform: 'translateY(100vh) scaleX(0)',
+            opacity: 0
+          },
+        },
+        slidein: {
+          from: {
+            transform: 'translateY(100vh) scaleX(0)',
+            opacity: 0
+          },
+          to: {
+            transform: 'translateY(0) scaleX(1)',
+            opacity: 1
+          },
+        },
+      },
     },
   },
   plugins: [],
 }
-
