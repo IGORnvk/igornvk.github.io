@@ -41,7 +41,7 @@
     on:click={() => {showDialogWindow()}}
     id="dialogWindowContainerHidden"
     data-augmented-ui="both tl-clip br-clip-x tr-clip bl-clip"
-    class="hidden fixed bottom-0 w-64 sm:w-96 px-7 pb-10 pt-2 mb-32 lg:mb-0"
+    class="hidden fixed bottom-0 w-64 sm:w-96 px-7 pb-10 pt-2 mb-40 lg:mb-0"
     style="
           --aug-inlay-bg: #172554;
           --aug-border-bg: #4cd0fc;
