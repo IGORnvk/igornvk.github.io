@@ -13,11 +13,8 @@ export const dialogRenderer = async (event: KeyboardEvent) => {
     // When hiding the window, animation should be played first,
     // and only after that the position should be changed.
     // In case of showing the window, it's the other way around.
-    if (dialogWindowHidden()) {
-      showDialogWindow();
-    } else {
-      slideDialogWindow('out');
-    }
+    if (dialogWindowHidden()) showDialogWindow();
+    else slideDialogWindow('out');
 
     return;
   }

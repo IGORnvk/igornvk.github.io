@@ -18,6 +18,7 @@
   import GhostCompanion from "./models/GhostCompanion.svelte";
   import CameraControls from "./CameraControls.svelte";
   import DialogPopup from "./DialogPopup.svelte";
+  import DialogPopupHidden from "./DialogPopupHidden.svelte";
 
   useFrame(() => {
     updateTweens();
@@ -62,6 +63,8 @@
 />
 
 <DialogPopup />
+
+<DialogPopupHidden />
 
 <StartingIsland />
 

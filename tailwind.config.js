@@ -12,6 +12,8 @@ export default {
       animation: {
         'slide-out': 'slideout 0.5s ease-out forwards',
         'slide-in': 'slidein 0.5s ease-out forwards',
+        'appear': 'appear 0.5s ease-out forwards',
+        'disappear': 'disappear 0.5s ease-out forwards',
       },
       keyframes: {
         slideout: {
@@ -32,6 +34,22 @@ export default {
           to: {
             transform: 'translateY(0) scaleX(1)',
             opacity: 1
+          },
+        },
+        appear: {
+          from: {
+            opacity: 0,
+          },
+          to: {
+            opacity: 1,
+          },
+        },
+        disappear: {
+          from: {
+            opacity: 1,
+          },
+          to: {
+            opacity: 0,
           },
         },
       },

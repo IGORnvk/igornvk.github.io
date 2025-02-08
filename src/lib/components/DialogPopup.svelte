@@ -1,7 +1,7 @@
 <script lang="ts">
   import { useFrame, useThrelte } from "@threlte/core";
   import { currentQuote, dialogWindow } from "$lib/stores";
-  import { getQuoteNumber, hideDialogWindow } from "$lib/dialogHelpers";
+  import { dialogRenderer, getQuoteNumber, hideDialogWindow } from "$lib/dialogHelpers";
   import { slideDialogWindow } from "$lib/animationHelpers";
   import { HTML } from "@threlte/extras";
   import { onMount } from "svelte";
@@ -20,13 +20,18 @@
     camera.current.add(ref);
     ref.position.set(0, 0, -55);
 
+
     // Cleanup logic for animations.
     const dialogWindowContainer = document.getElementById('dialogWindowContainer');
+    const dialogWindowContainerHidden = document.getElementById('dialogWindowContainerHidden');
     dialogWindowContainer?.addEventListener('animationend', (event) => {
       if (event.animationName === 'slideout') {
         hideDialogWindow();
         dialogWindowContainer.classList.remove('animate-slide-out');
+        dialogWindowContainerHidden?.classList.remove('hidden');
+        dialogWindowContainerHidden?.classList.add('animate-appear');
       } else if (event.animationName === 'slidein') {
+        dialogWindowContainerHidden?.classList.add('animate-disappear');
         dialogWindowContainer.classList.remove('animate-slide-in');
       }
     });
@@ -67,19 +72,19 @@
     </div>
     <div class="mt-10 flex justify-between">
       {#if quoteNumber != 0}
-        <div class="flex gap-2">
+        <button on:click={() => {dialogRenderer(new KeyboardEvent('keydown', { 'code': 'KeyA' }))}} class="flex gap-2">
           <p
             data-augmented-ui="border"
             class="px-2 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">A</p>
           Previous
-        </div>
+        </button>
       {/if}
-      <div class="flex gap-2 ml-auto">
+      <button on:click={() => {dialogRenderer(new KeyboardEvent('keydown', { 'code': 'KeyD' }))}} class="flex gap-2 ml-auto">
         <p
           data-augmented-ui="border"
           class="px-2 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">D</p>
         Next
-      </div>
+      </button>
     </div>
   </div>
 </HTML>
