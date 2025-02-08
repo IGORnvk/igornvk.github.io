@@ -12,13 +12,8 @@
     camera.current.add(ref);
     ref.position.set(0, -14.5, -55);
 
-    const container = document.getElementById('dialogWindowContainerHidden');
-    const viewportDiff = window.innerHeight - window.visualViewport?.height;
-
-    // Add padding only when there is a viewport difference.
-    if (viewportDiff != 0) container.style.marginBottom = `${viewportDiff}px`;
-
     // Cleanup logic for animations.
+    const container = document.getElementById('dialogWindowContainerHidden');
     container?.addEventListener('animationend', (event) => {
       if (event.animationName === 'appear') {
         container.classList.remove('animate-appear');
