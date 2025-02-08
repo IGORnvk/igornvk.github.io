@@ -10,7 +10,7 @@
 
   onMount(() => {
     camera.current.add(ref);
-    ref.position.set(0, 0, -55);
+    ref.position.set(0, -14.5, -55);
 
     // Cleanup logic for animations.
     const container = document.getElementById('dialogWindowContainerHidden');
@@ -36,7 +36,7 @@
     on:click={() => {showDialogWindow()}}
     id="dialogWindowContainerHidden"
     data-augmented-ui="both tl-clip br-clip-x tr-clip bl-clip"
-    class="hidden fixed -bottom-[88vh] sm:-bottom-[61vh] w-64 sm:w-96 px-7 pb-7 pt-2 "
+    class="hidden absolute w-64 sm:w-96 px-7 pb-7 pt-2 "
     style="
           --aug-inlay-bg: #172554;
           --aug-border-bg: #4cd0fc;
