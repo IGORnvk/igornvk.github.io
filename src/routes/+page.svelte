@@ -3,7 +3,7 @@
   import App from '$lib/components/App.svelte';
 </script>
 
-<div>
+<div class="app">
   <App />
 </div>
 
@@ -12,7 +12,7 @@
     margin: 0;
   }
 
-  div {
+  .app {
     width: 100vw;
     height: 100vh;
     background: rgb(13, 19, 32);
