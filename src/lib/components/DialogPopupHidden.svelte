@@ -16,7 +16,7 @@
     const viewportDiff = window.innerHeight - window.visualViewport?.height;
 
     // Add padding only when there is a viewport difference.
-    if (viewportDiff != 0) container.style.paddingBottom = `${viewportDiff}px`;
+    if (viewportDiff != 0) container.style.marginBottom = `${viewportDiff}px`;
 
     // Cleanup logic for animations.
     container?.addEventListener('animationend', (event) => {
