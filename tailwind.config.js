@@ -12,8 +12,8 @@ export default {
       animation: {
         'slide-out': 'slideout 0.5s ease-out forwards',
         'slide-in': 'slidein 0.5s ease-out forwards',
-        'appear': 'appear 0.5s ease-out forwards',
-        'disappear': 'disappear 0.5s ease-out forwards',
+        'appear': 'appear 0.3s ease-out forwards',
+        'disappear': 'disappear 0.3s ease-out forwards',
       },
       keyframes: {
         slideout: {
