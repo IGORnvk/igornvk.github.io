@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { T, useFrame } from "@threlte/core";
+  import { T, useTask } from "@threlte/core";
   import {
     ContactShadows,
     Grid,
@@ -20,7 +20,7 @@
   import DialogPopup from "./DialogPopup.svelte";
   import DialogPopupHidden from "./DialogPopupHidden.svelte";
 
-  useFrame(() => {
+  useTask(() => {
     updateTweens();
     
     if (getDialogNumber() > 0) alwaysLookAtCamera($ghostCompanion);

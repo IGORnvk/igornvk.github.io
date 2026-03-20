@@ -40,7 +40,7 @@ export const dialogRenderer = async (event: KeyboardEvent) => {
           await attachToCamera(get(ghostCompanion));
         }
 
-        moveToIsland(dialogNumber);
+        moveToIsland(dialogNumber as Parameters<typeof moveToIsland>[0]);
       } else return;
     }
 

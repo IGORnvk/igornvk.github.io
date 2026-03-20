@@ -5,6 +5,7 @@ import { Euler, Quaternion, Vector3, type Object3D } from "three";
 
 const tweenGroup = new Group();
 let lookAtCamera = false;
+type Point3 = { x: number; y: number; z: number };
 
 export const updateTweens = (time = performance.now()) => {
   tweenGroup.update(time);
@@ -65,14 +66,18 @@ export const setLookAtCamera = (value: boolean) => {
 };
 
 export const alwaysLookAtCamera = (object: Object3D) => {
+  const controls = get(cameraControls);
+
   if (lookAtCamera) {
+    if (!controls) return;
+
     let cameraPos = new Vector3();
-    get(cameraControls).camera.getWorldPosition(cameraPos);
+    controls.camera.getWorldPosition(cameraPos);
     object.lookAt(cameraPos);
   }
 };
 
-export const moveObjectTo = (object: Object3D, position: Euler | Vector3, delay = 0, duration = 1000) => {
+export const moveObjectTo = (object: Object3D, position: Point3 | Euler | Vector3, delay = 0, duration = 1000) => {
   return new Promise<void>((resolve) => {
     return prepareTween(object.position, resolve)
       .to(position, duration)
@@ -82,8 +87,12 @@ export const moveObjectTo = (object: Object3D, position: Euler | Vector3, delay 
   });
 };
 
-export const moveCameraTo = async (pos: Euler, target: Euler) => {
+export const moveCameraTo = async (pos: Point3, target: Point3) => {
     const camera = get(cameraControls);
+
+    if (!camera) {
+      throw new Error('Camera controls are not ready yet.');
+    }
 
     camera.enabled = false;
     const promise = camera.setLookAt(pos.x, pos.y, pos.z, target.x, target.y, target.z, true).then(() => {
@@ -104,7 +113,10 @@ export const scaleObjectTo = async (object: Object3D, scale: number, delay = 0, 
 };
 
 export const detachFromCamera = (object: Object3D) => {
-  const parentCamera = get(cameraControls).camera;
+  const controls = get(cameraControls);
+  if (!controls) return;
+
+  const parentCamera = controls.camera;
   const worldPosition = new Vector3();
   const worldQuaternion = new Quaternion();
 
@@ -122,7 +134,14 @@ export const detachFromCamera = (object: Object3D) => {
 
 export const attachToCamera = async (object: Object3D, delay = 0, initial = false) => {
   return new Promise<void>((resolve) => {
-    const parentCamera = get(cameraControls).camera;
+    const controls = get(cameraControls);
+
+    if (!controls) {
+      resolve();
+      return;
+    }
+
+    const parentCamera = controls.camera;
 
     // Always the same.
     const offset = new Vector3(0.5, 0, -2);

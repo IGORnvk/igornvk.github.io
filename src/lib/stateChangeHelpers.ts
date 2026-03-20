@@ -27,9 +27,17 @@ const islandSettings = {
   },
 };
 
-export const moveToIsland = async (islandNumber: number) => {
+type IslandNumber = keyof typeof islandSettings.cameraPos;
+
+export const moveToIsland = async (islandNumber: IslandNumber) => {
   const companion = get(ghostCompanion);
-  const camera = get(cameraControls).camera;
+  const controls = get(cameraControls);
+
+  if (!controls) {
+    throw new Error('Camera controls are not ready yet.');
+  }
+
+  const camera = controls.camera;
 
   // Rotate and move to the next island.
   await rotateObjectTo(companion, 'y', islandSettings.companion.rotationAngle[islandNumber]);
@@ -37,7 +45,10 @@ export const moveToIsland = async (islandNumber: number) => {
 
   // Move companion to the position on the island.
   detachFromCamera(companion);
-  moveObjectTo(companion, islandSettings.companion.position[islandNumber]);
+  const companionPosition = islandSettings.companion.position[islandNumber as keyof typeof islandSettings.companion.position];
+  if (companionPosition) {
+    moveObjectTo(companion, companionPosition);
+  }
   await scaleObjectTo(companion, 0.07);
   await smoothLookAt(companion, camera);
   

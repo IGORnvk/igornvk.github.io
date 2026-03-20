@@ -6,12 +6,10 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\Rock3.
 <script lang="ts">
   import type * as THREE from 'three'
   import { Group } from 'three'
-  import { T, type Props, type Events, type Slots, forwardEventHandlers } from '@threlte/core'
+  import { T, type Props } from '@threlte/core'
   import { useGltf } from '@threlte/extras'
 
   type $$Props = Props<THREE.Group>
-  type $$Events = Events<THREE.Group>
-  type $$Slots = Slots<THREE.Group> & { fallback: {}; error: { error: any } }
 
   export const ref = new Group()
 
@@ -25,11 +23,9 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\Rock3.
   }
 
   const gltf = useGltf<GLTFResult>('/models/Rock3.glb')
-
-  const component = forwardEventHandlers()
 </script>
 
-<T is={ref} dispose={false} {...$$restProps} bind:this={$component}>
+<T is={ref} dispose={false} {...$$restProps}>
   {#await gltf}
     <slot name="fallback" />
   {:then gltf}
@@ -40,3 +36,4 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\Rock3.
 
   <slot {ref} />
 </T>
+

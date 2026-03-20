@@ -5,7 +5,7 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\GhostC
 
 <script lang="ts">
   import * as THREE from 'three'
-  import { T, type Props, type Events, type Slots, forwardEventHandlers } from '@threlte/core'
+  import { T, type Props } from '@threlte/core'
   import { useGltf, useGltfAnimations } from '@threlte/extras'
   import { onMount } from 'svelte'
   import { Group } from 'three'
@@ -13,8 +13,6 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\GhostC
   import { attachToCamera } from '$lib/animationHelpers';
 
   type $$Props = Props<THREE.Group>
-  type $$Events = Events<THREE.Group>
-  type $$Slots = Slots<THREE.Group> & { fallback: {}; error: { error: any } }
 
   export const ref = new Group()
 
@@ -45,11 +43,9 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\GhostC
   });
 
   $ghostCompanion = ref;
-  
-  const component = forwardEventHandlers()
 </script>
 
-<T is={ref} dispose={false} {...$$restProps} bind:this={$component}>
+<T is={ref} dispose={false} {...$$restProps}>
   {#await gltf}
     <slot name="fallback" />
   {:then gltf}
@@ -69,3 +65,4 @@ Command: npx @threlte/gltf@2.0.3 D:\repos\IGORnvk.github.io\static\models\GhostC
 
   <slot {ref} />
 </T>
+

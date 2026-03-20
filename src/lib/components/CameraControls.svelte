@@ -6,16 +6,12 @@
 </script>
 
 <script lang="ts">
-  import { T, forwardEventHandlers, useTask, useParent, useThrelte } from '@threlte/core'
+  import { T, useTask, useParent, useThrelte } from '@threlte/core'
   import type {
-    CameraControlsEvents,
     CameraControlsProps,
-    CameraControlsSlots
   } from '../CameraControls.svelte'
 
   type $$Props = CameraControlsProps
-  type $$Events = CameraControlsEvents
-  type $$Slots = CameraControlsSlots
 
   import CameraControls from 'camera-controls'
   import {
@@ -91,23 +87,20 @@
   )
 
   $cameraControls = ref;
-
-  const forwardingComponent = forwardEventHandlers()
 </script>
 
 <T
   is={ref}
-  on:controlstart={(e) => {
+  oncontrolstart={() => {
     disableAutoRotate = true
   }}
-  on:zoom={(e) => {
-    console.log('zoomstart', e)
+  onzoom={(event: unknown) => {
+    console.log('zoomstart', event)
   }}
-  on:controlend={() => {
+  oncontrolend={() => {
     disableAutoRotate = false
   }}
   {...rest}
-  bind:this={$forwardingComponent}
 >
   {@render children?.({ ref, })}
 </T>
