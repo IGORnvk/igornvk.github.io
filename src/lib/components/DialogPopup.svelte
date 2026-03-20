@@ -42,13 +42,11 @@
 
 <HTML
   {ref}
-  transform
-  sprite
 >
   <div
     id="dialogWindowContainer"
     data-augmented-ui="both tl-clip-x br-clip-x tr-clip bl-clip"
-    class="inline-block w-screen max-w-xl px-7 pb-7 pt-10 font-bold sm:text-xl text-main uppercase break-words"
+    class="inline-block w-[90vw] max-w-xl px-7 pb-7 pt-10 font-bold sm:text-xl text-main uppercase break-words"
     style="
           --aug-inlay-bg: #172554;
           --aug-border-bg: #4cd0fc;

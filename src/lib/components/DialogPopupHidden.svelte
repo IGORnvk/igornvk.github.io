@@ -27,16 +27,14 @@
 
 <HTML
   {ref}
-  transform
-  sprite
-  >
+>
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
     onclick={() => {showDialogWindow()}}
     id="dialogWindowContainerHidden"
     data-augmented-ui="both tl-clip br-clip-x tr-clip bl-clip"
-    class="hidden fixed bottom-0 w-64 sm:w-96 px-7 pb-10 pt-2 mb-48 lg:mb-0"
+    class="hidden inline-block w-64 sm:w-96 px-7 pb-10 pt-2 text-main"
     style="
           --aug-inlay-bg: #172554;
           --aug-border-bg: #4cd0fc;
