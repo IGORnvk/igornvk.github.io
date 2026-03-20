@@ -1,5 +1,5 @@
 <script
-  context="module"
+  module
   lang="ts"
 >
   let installed = false
@@ -58,10 +58,16 @@
 
   const { renderer, invalidate } = useThrelte()
 
-  export let autoRotate = false
-  export let autoRotateSpeed = 1
+  interface Props {
+    autoRotate?: boolean;
+    autoRotateSpeed?: number;
+    children?: import('svelte').Snippet<[any]>;
+    [key: string]: any
+  }
 
-  export const ref = new CameraControls($parent as PerspectiveCamera, renderer?.domElement)
+  let { autoRotate = false, autoRotateSpeed = 1, children, ...rest }: Props = $props();
+
+  export const ref = $state(new CameraControls($parent as PerspectiveCamera, renderer?.domElement))
   ref.setLookAt(-10, 5, 7, 0, 1.6, 0)
   ref.mouseButtons.right = CameraControls.ACTION.NONE
   ref.touches.two = CameraControls.ACTION.NONE
@@ -69,7 +75,7 @@
 
   const getControls = () => ref
 
-  let disableAutoRotate = false
+  let disableAutoRotate = $state(false)
 
   useTask(
     (delta) => {
@@ -100,8 +106,8 @@
   on:controlend={() => {
     disableAutoRotate = false
   }}
-  {...$$restProps}
+  {...rest}
   bind:this={$forwardingComponent}
 >
-  <slot {ref} />
+  {@render children?.({ ref, })}
 </T>

@@ -10,7 +10,7 @@
 
   export const ref = new Group();
   const { camera } = useThrelte();
-  let quoteNumber = getQuoteNumber();
+  let quoteNumber = $state(getQuoteNumber());
 
   useFrame(() => {
     quoteNumber = getQuoteNumber();
@@ -60,7 +60,7 @@
           "
   >
     <div class="absolute right-4 top-3 text-sm sm:text-base">
-      <button type="button" on:click={() => {slideDialogWindow('out')}} data-augmented-ui="border" class="px-0.5 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">
+      <button type="button" onclick={() => {slideDialogWindow('out')}} data-augmented-ui="border" class="px-0.5 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="size-5">
           <path fill="#4cd0fc" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
         </svg>
@@ -72,14 +72,14 @@
     </div>
     <div class="mt-10 flex justify-between">
       {#if quoteNumber != 0}
-        <button on:click={() => {dialogRenderer(new KeyboardEvent('keydown', { 'code': 'KeyA' }))}} class="flex gap-2">
+        <button onclick={() => {dialogRenderer(new KeyboardEvent('keydown', { 'code': 'KeyA' }))}} class="flex gap-2">
           <p
             data-augmented-ui="border"
             class="px-2 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">A</p>
           Previous
         </button>
       {/if}
-      <button on:click={() => {dialogRenderer(new KeyboardEvent('keydown', { 'code': 'KeyD' }))}} class="flex gap-2 ml-auto">
+      <button onclick={() => {dialogRenderer(new KeyboardEvent('keydown', { 'code': 'KeyD' }))}} class="flex gap-2 ml-auto">
         <p
           data-augmented-ui="border"
           class="px-2 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">D</p>
