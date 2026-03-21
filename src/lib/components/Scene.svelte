@@ -3,6 +3,7 @@
   import {
     ContactShadows,
     Grid,
+    HUD,
     interactivity,
     Sky,
   } from "@threlte/extras";
@@ -17,8 +18,7 @@
   import GrassPlatform from "./models/GrassPlatform.svelte";
   import GhostCompanion from "./models/GhostCompanion.svelte";
   import CameraControls from "./CameraControls.svelte";
-  import DialogPopup from "./DialogPopup.svelte";
-  import DialogPopupHidden from "./DialogPopupHidden.svelte";
+  import DialogHudScene from "./DialogHudScene.svelte";
 
   useTask(() => {
     updateTweens();
@@ -62,9 +62,9 @@
   scale={0.1}
 />
 
-<DialogPopup />
-
-<DialogPopupHidden />
+<HUD>
+  <DialogHudScene />
+</HUD>
 
 <StartingIsland />
 

@@ -1,15 +1,14 @@
 <script lang="ts">
-  import { useTask, useThrelte } from "@threlte/core";
-  import { currentQuote, dialogWindow } from "$lib/stores";
-  import { dialogRenderer, getQuoteNumber, hideDialogWindow } from "$lib/dialogHelpers";
-  import { slideDialogWindow } from "$lib/animationHelpers";
-  import { HTML } from "@threlte/extras";
-  import { onMount } from "svelte";
-  import { Group } from "three";
-  import "augmented-ui/augmented-ui.min.css";
+  import { useTask } from '@threlte/core';
+  import { currentQuote, dialogWindow } from '$lib/stores';
+  import { dialogRenderer, getQuoteNumber, hideDialogWindow } from '$lib/dialogHelpers';
+  import { slideDialogWindow } from '$lib/animationHelpers';
+  import { HTML } from '@threlte/extras';
+  import { onMount } from 'svelte';
+  import { Group } from 'three';
+  import 'augmented-ui/augmented-ui.min.css';
 
-  export const ref = new Group();
-  const { camera } = useThrelte();
+  let ref = $state<Group>();
   let quoteNumber = $state(getQuoteNumber());
 
   useTask(() => {
@@ -17,16 +16,13 @@
   });
 
   onMount(() => {
-    camera.current.add(ref);
-    ref.position.set(0, 0, -55);
-
-
-    // Cleanup logic for animations.
     const dialogWindowContainer = document.getElementById('dialogWindowContainer');
     const dialogWindowContainerHidden = document.getElementById('dialogWindowContainerHidden');
+
     dialogWindowContainer?.addEventListener('animationend', (event) => {
       if (event.animationName === 'slideout') {
         hideDialogWindow();
+        dialogWindowContainer.classList.add('hidden');
         dialogWindowContainer.classList.remove('animate-slide-out');
         dialogWindowContainerHidden?.classList.remove('hidden');
         dialogWindowContainerHidden?.classList.add('animate-appear');
@@ -37,16 +33,21 @@
     });
   });
 
-  $dialogWindow = ref;
+  $effect(() => {
+    if (ref) {
+      $dialogWindow = ref;
+    }
+  });
 </script>
 
 <HTML
-  {ref}
+  bind:ref
+  center
 >
   <div
     id="dialogWindowContainer"
     data-augmented-ui="both tl-clip-x br-clip-x tr-clip bl-clip"
-    class="inline-block w-[90vw] max-w-xl px-7 pb-7 pt-10 font-bold sm:text-xl text-main uppercase break-words"
+    class="inline-block w-screen max-w-xl px-7 pb-7 pt-10 font-bold text-main uppercase break-words sm:text-xl"
     style="
           --aug-inlay-bg: #172554;
           --aug-border-bg: #4cd0fc;
@@ -58,29 +59,29 @@
           "
   >
     <div class="absolute right-4 top-3 text-sm sm:text-base">
-      <button type="button" aria-label="Close dialog" onclick={() => {slideDialogWindow('out')}} data-augmented-ui="border" class="px-0.5 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">
+      <button type="button" aria-label="Close dialog" onclick={() => {slideDialogWindow('out')}} data-augmented-ui="border" class="w-fit rounded-md px-0.5 py-0" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="size-5">
           <path fill="#4cd0fc" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
         </svg>
       </button>
     </div>
-    
+
     <div>
-      { $currentQuote }
+      {$currentQuote}
     </div>
     <div class="mt-10 flex justify-between">
       {#if quoteNumber != 0}
-        <button onclick={() => {dialogRenderer(new KeyboardEvent('keydown', { 'code': 'KeyA' }))}} class="flex gap-2">
+        <button onclick={() => {dialogRenderer(new KeyboardEvent('keydown', { code: 'KeyA' }))}} class="flex gap-2">
           <p
             data-augmented-ui="border"
-            class="px-2 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">A</p>
+            class="w-fit rounded-md px-2 py-0" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">A</p>
           Previous
         </button>
       {/if}
-      <button onclick={() => {dialogRenderer(new KeyboardEvent('keydown', { 'code': 'KeyD' }))}} class="flex gap-2 ml-auto">
+      <button onclick={() => {dialogRenderer(new KeyboardEvent('keydown', { code: 'KeyD' }))}} class="ml-auto flex gap-2">
         <p
           data-augmented-ui="border"
-          class="px-2 py-0 w-fit rounded-md" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">D</p>
+          class="w-fit rounded-md px-2 py-0" style="--aug-border-bg: #4cd0fc; --aug-border-all: 1.5px;">D</p>
         Next
       </button>
     </div>

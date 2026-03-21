@@ -58,18 +58,19 @@ export const deactivateKeyListener = (): void => {
 };
 
 export const hideDialogWindow = (): void => {
-  get(dialogWindow).position.set(0, 0, 5);
+  get(dialogWindow).position.set(0, 0, 15);
 };
 
-export const showDialogWindow = (distanceFromCamera = 55): void => {
+export const showDialogWindow = (): void => {
+  document.getElementById('dialogWindowContainer')?.classList.remove('hidden');
   slideDialogWindow('in');
-  get(dialogWindow).position.set(0, 0, -distanceFromCamera);
+  get(dialogWindow).position.set(0, 0, 0);
 };
 
 export const dialogWindowHidden = (): boolean => {
   const windowPosition = get(dialogWindow).position;
 
-  return (windowPosition.x == 0 && windowPosition.y == 0 && windowPosition.z == 5);
+  return (windowPosition.x == 0 && windowPosition.y == 0 && windowPosition.z == 15);
 }
 
 export const setCurrentQuote = (quote: string): void => {
