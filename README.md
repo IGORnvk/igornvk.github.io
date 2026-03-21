@@ -28,7 +28,7 @@ Starts the local development server.
 npm run build
 ```
 
-Builds the static production site into [`build/`](/C:/Users/igork/Documents/Code/igornvk.github.io/build).
+Builds the static production site into [`build/`](./build).
 
 ```bash
 npm run preview
@@ -42,32 +42,32 @@ Serves the production build locally.
 .
 |- src/
 |  |- routes/                 # SvelteKit routes
-|  |- lib/components/         # Scene composition and UI/HUD components
-|  |- lib/components/models/  # Generated or maintained Svelte model wrappers
-|  |- lib/data/               # Content data such as dialog/quote text
-|  |- lib/*.ts                # Stores, helpers, animation logic
+|  |- lib/components/         # Scene composition and HUD/UI pieces
+|  |- lib/components/models/  # Svelte model wrappers
+|  |- lib/data/               # Content data
+|  |- lib/*.ts                # Stores and helper logic
 |  `- app.css                 # Global CSS entry
-|- static/models/             # Raw 3D assets served statically
+|- static/models/             # Raw 3D assets
 |- scripts/model-pipeline.js  # Model generation helper
-|- .github/workflows/         # CI/CD workflow
+|- .github/workflows/         # Deployment workflow
 `- build/                     # Generated production output
 ```
 
 ## Where Things Live
 
-The main entry point is [`src/routes/+page.svelte`](/C:/Users/igork/Documents/Code/igornvk.github.io/src/routes/+page.svelte), which mounts the app-level canvas component.
+The main route is [`src/routes/+page.svelte`](./src/routes/+page.svelte), which mounts the canvas app.
 
-The 3D scene is assembled in [`src/lib/components/Scene.svelte`](/C:/Users/igork/Documents/Code/igornvk.github.io/src/lib/components/Scene.svelte). This is where the camera, lights, HUD, and other components are created.
+The 3D scene is assembled in [`src/lib/components/Scene.svelte`](./src/lib/components/Scene.svelte), where the camera, lights, HUD, and other components are instantiated.
 
 The island sections currently map to:
 
-- [`src/lib/components/StartingIsland.svelte`](/C:/Users/igork/Documents/Code/igornvk.github.io/src/lib/components/StartingIsland.svelte)
-- [`src/lib/components/ProjectsIsland.svelte`](/C:/Users/igork/Documents/Code/igornvk.github.io/src/lib/components/ProjectsIsland.svelte)
-- [`src/lib/components/SkillsIsland.svelte`](/C:/Users/igork/Documents/Code/igornvk.github.io/src/lib/components/SkillsIsland.svelte)
-- [`src/lib/components/ContactIsland.svelte`](/C:/Users/igork/Documents/Code/igornvk.github.io/src/lib/components/ContactIsland.svelte)
+- [`src/lib/components/StartingIsland.svelte`](./src/lib/components/StartingIsland.svelte)
+- [`src/lib/components/ProjectsIsland.svelte`](./src/lib/components/ProjectsIsland.svelte)
+- [`src/lib/components/SkillsIsland.svelte`](./src/lib/components/SkillsIsland.svelte)
+- [`src/lib/components/ContactIsland.svelte`](./src/lib/components/ContactIsland.svelte)
 
-Dialog state and interaction helpers live in:
+Dialog state and related helpers live in:
 
-- [`src/lib/stores.ts`](/C:/Users/igork/Documents/Code/igornvk.github.io/src/lib/stores.ts)
-- [`src/lib/dialogHelpers.ts`](/C:/Users/igork/Documents/Code/igornvk.github.io/src/lib/dialogHelpers.ts)
-- [`src/lib/data/quotes.json`](/C:/Users/igork/Documents/Code/igornvk.github.io/src/lib/data/quotes.json)
+- [`src/lib/stores.ts`](./src/lib/stores.ts)
+- [`src/lib/dialogHelpers.ts`](./src/lib/dialogHelpers.ts)
+- [`src/lib/data/quotes.json`](./src/lib/data/quotes.json)
