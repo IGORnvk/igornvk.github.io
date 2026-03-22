@@ -1,5 +1,8 @@
 <script lang="ts">
+  import { T } from "@threlte/core";
   import Island from "./models/Island.svelte";
 </script>
 
-<Island scale={2} position.x={0.8} position.z={-3.3} />
+<T.Group scale={2} position={[0.8, 0, -3.3]}>
+  <Island />
+</T.Group>

@@ -147,10 +147,10 @@ export const attachToCamera = async (object: Object3D, delay = 0, initial = fals
     const offset = new Vector3(0.5, 0, -2);
 
     if (initial) {
+      object.scale.setScalar(0.1);
       parentCamera.add(object);
       object.position.copy(offset);
-
-      smoothLookAt(object, parentCamera);
+      smoothLookAt(object, parentCamera).then(resolve);
     } else {
       const targetPosition = new Vector3();
       const worldQuaternion = new Quaternion();

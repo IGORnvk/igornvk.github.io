@@ -1,5 +1,5 @@
 import { execSync } from 'node:child_process'
-import { readdirSync, copyFileSync, unlinkSync, mkdirSync, existsSync } from 'node:fs'
+import { copyFileSync, existsSync, mkdirSync, readdirSync, unlinkSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { exit } from 'node:process'
 
@@ -13,10 +13,10 @@ import { exit } from 'node:process'
 const configuration = {
   sourceDir: resolve(join('static', 'models')),
   targetDir: resolve(join('src', 'lib', 'components', 'models')),
-  overwrite: false,
+  overwrite: true,
   root: '/models/',
   types: true,
-  keepnames: false,
+  keepnames: true,
   meta: false,
   shadows: false,
   printwidth: 120,
@@ -24,7 +24,7 @@ const configuration = {
   draco: null,
   preload: false,
   suspense: false,
-  isolated: false,
+  isolated: true,
   transform: {
     enabled: false,
     resolution: 1024,
@@ -35,7 +35,7 @@ const configuration = {
       error: 0.001
     }
   }
-}
+} as const
 
 // if the target directory doesn't exist, create it
 mkdirSync(configuration.targetDir, { recursive: true })
@@ -83,7 +83,7 @@ filteredGltfFiles.forEach((file) => {
   const path = join(configuration.sourceDir, file)
 
   // parse the configuration
-  const args = []
+  const args: string[] = []
   if (configuration.root) args.push(`--root ${configuration.root}`)
   if (configuration.types) args.push('--types')
   if (configuration.keepnames) args.push('--keepnames')
@@ -108,7 +108,7 @@ filteredGltfFiles.forEach((file) => {
   const formattedArgs = args.join(' ')
 
   // run the command
-  const cmd = `npx @threlte/gltf@2.0.3 ${path} ${formattedArgs}`
+  const cmd = `npx @threlte/gltf@next ${path} ${formattedArgs}`
   try {
     execSync(cmd, {
       cwd: configuration.sourceDir

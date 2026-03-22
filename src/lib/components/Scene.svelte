@@ -58,9 +58,7 @@
 
 <ContactShadows scale={20} blur={2} far={2.5} opacity={0.5} />
 
-<GhostCompanion 
-  scale={0.1}
-/>
+<GhostCompanion />
 
 <HUD>
   <DialogHudScene />
@@ -68,50 +66,32 @@
 
 <StartingIsland />
 
-<GrassPlatform
-  scale={0.7}
-  position.x={0.3}
-  position.y={1.15}
-  position.z={-1.1}
-/>
+<T.Group scale={0.7} position={[0.3, 1.15, -1.1]}>
+  <GrassPlatform />
+</T.Group>
 
-<GrassPlatform
-  scale={0.7}
-  position.x={0.4}
-  position.y={1.15}
-  position.z={-1.9}
-/>
+<T.Group scale={0.7} position={[0.4, 1.15, -1.9]}>
+  <GrassPlatform />
+</T.Group>
 
 <ProjectsIsland />
 
-<GrassPlatform
-  scale={0.7}
-  position.x={1.9}
-  position.y={1.15}
-  position.z={-2.3}
-/>
+<T.Group scale={0.7} position={[1.9, 1.15, -2.3]}>
+  <GrassPlatform />
+</T.Group>
 
-<GrassPlatform
-  scale={0.7}
-  position.x={2.7}
-  position.y={1.15}
-  position.z={-1.9}
-/>
+<T.Group scale={0.7} position={[2.7, 1.15, -1.9]}>
+  <GrassPlatform />
+</T.Group>
 
 <SkillsIsland />
 
-<GrassPlatform
-  scale={0.7}
-  position.x={4}
-  position.y={1.15}
-  position.z={-2.7}
-/>
+<T.Group scale={0.7} position={[4, 1.15, -2.7]}>
+  <GrassPlatform />
+</T.Group>
 
-<GrassPlatform
-  scale={0.7}
-  position.x={4}
-  position.y={1.15}
-  position.z={-3.5}
-/>
+<T.Group scale={0.7} position={[4, 1.15, -3.5]}>
+  <GrassPlatform />
+</T.Group>
 
 <ContactIsland />
