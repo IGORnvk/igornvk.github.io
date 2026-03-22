@@ -63,7 +63,8 @@
 
   let { autoRotate = false, autoRotateSpeed = 1, children, ...rest }: Props = $props();
 
-  export const ref = $state(new CameraControls($parent as PerspectiveCamera, renderer?.domElement))
+  const controlsElement = renderer?.domElement.parentElement ?? renderer?.domElement
+  export const ref = $state(new CameraControls($parent as PerspectiveCamera, controlsElement))
   ref.setLookAt(-10, 5, 7, 0, 1.6, 0)
   ref.mouseButtons.right = CameraControls.ACTION.NONE
   ref.touches.two = CameraControls.ACTION.NONE

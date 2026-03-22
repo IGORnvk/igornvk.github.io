@@ -1,5 +1,5 @@
 import { get } from "svelte/store";
-import { currentQuote, dialogWindow, ghostCompanion } from "./stores";
+import { activeFocusObjectId, currentQuote, dialogWindow, ghostCompanion } from "./stores";
 import { moveToIsland } from "./stateChangeHelpers";
 import { attachToCamera, setLookAtCamera, slideDialogWindow } from "./animationHelpers";
 import quotes from "./data/quotes.json";
@@ -8,6 +8,10 @@ let dialogNumber = 0;
 let quoteNumber = 0;
 
 export const dialogRenderer = async (event: KeyboardEvent) => {
+  if (get(activeFocusObjectId)) {
+    return;
+  }
+
   // Handle hiding the dialog window on demand.
   if (event.code === 'KeyH') {
     // When hiding the window, animation should be played first,

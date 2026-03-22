@@ -15,6 +15,7 @@
   import SkillsIsland from "./SkillsIsland.svelte";
   import ProjectsIsland from "./ProjectsIsland.svelte";
   import ContactIsland from "./ContactIsland.svelte";
+  import FocusedObjectContentHost from "./focus/FocusedObjectContentHost.svelte";
   import GrassPlatform from "./models/GrassPlatform.svelte";
   import GhostCompanion from "./models/GhostCompanion.svelte";
   import CameraControls from "./CameraControls.svelte";
@@ -95,3 +96,5 @@
 </T.Group>
 
 <ContactIsland />
+
+<FocusedObjectContentHost />

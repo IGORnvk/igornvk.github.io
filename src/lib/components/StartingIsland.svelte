@@ -10,6 +10,8 @@
   import Grass1 from "./models/Grass1.svelte";
   import Bike from "./models/Bike.svelte";
   import Chair from "./models/Chair.svelte";
+  import FocusableObject from "./FocusableObject.svelte";
+  import IntroBoardContent from "./focus/IntroBoardContent.svelte";
   import InfoBoard from "./models/InfoBoard.svelte";
 </script>
 
@@ -20,8 +22,12 @@
 </T.Group>
 
 <T.Group scale={0.17} position={[-0.2, $heightForItems, 0.3]} rotation={[0, -2.4, 0]}>
-  <InfoBoard />
+  <FocusableObject objectId="intro-board">
+    <InfoBoard />
+  </FocusableObject>
 </T.Group>
+
+<IntroBoardContent />
 
 <T.Group scale={0.0008} position={[0.2, 1.4, -0.2]} rotation={[0, 2.5, 0]}>
   <Bike />

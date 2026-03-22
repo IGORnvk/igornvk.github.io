@@ -1,7 +1,12 @@
 import { detachFromCamera, moveCameraTo, moveObjectTo, rotateObjectTo, scaleObjectTo, setLookAtCamera, smoothLookAt } from "./animationHelpers";
 import { get } from "svelte/store";
-import { cameraControls, ghostCompanion } from "./stores";
+import { activeIslandId, cameraControls, ghostCompanion } from "./stores";
 import { activateKeyListener, dialogWindowHidden, showDialogWindow } from "./dialogHelpers";
+
+export type CameraShot = {
+  position: { x: number; y: number; z: number };
+  target: { x: number; y: number; z: number };
+};
 
 const islandSettings = {
   cameraPos: {
@@ -29,6 +34,11 @@ const islandSettings = {
 
 type IslandNumber = keyof typeof islandSettings.cameraPos;
 
+export const getIslandOverviewCamera = (islandNumber: IslandNumber): CameraShot => ({
+  position: islandSettings.cameraPos[islandNumber],
+  target: islandSettings.cameraTarget[islandNumber]
+});
+
 export const moveToIsland = async (islandNumber: IslandNumber) => {
   const companion = get(ghostCompanion);
   const controls = get(cameraControls);
@@ -52,6 +62,7 @@ export const moveToIsland = async (islandNumber: IslandNumber) => {
   await scaleObjectTo(companion, 0.07);
   await smoothLookAt(companion, camera);
   
+  activeIslandId.set(islandNumber);
   setLookAtCamera(true);
   activateKeyListener();
   if (dialogWindowHidden()) showDialogWindow();

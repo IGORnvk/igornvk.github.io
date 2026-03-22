@@ -12,5 +12,6 @@
 <style>
   div {
     height: 100%;
+    position: relative;
   }
 </style>
